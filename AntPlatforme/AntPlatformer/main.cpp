@@ -1,25 +1,36 @@
 #include <iostream>
 #include "Object.h"
+#include "Level.h"
+#include <iostream>
+#include <sstream>
+#include "iostream"
+#include "level.h"
+#include <vector>
+#include <list>
 
-	int main()
+
+int main()
+{
+	Level level;
+	level.LoadFromFile("mapN.tmx");
+
+	sf::RenderWindow window;
+	window.create(sf::VideoMode(1600, 700), "Antplatformer");
+
+	while (window.isOpen())
 	{
-		sf::RenderWindow window(sf::VideoMode(200, 200), "Lesson 1. kychka-pc.ru");
-		sf::CircleShape shape(100.f);
-		shape.setFillColor(sf::Color::Green);
+		sf::Event event;
 
-		while (window.isOpen())
+		while (window.pollEvent(event))
 		{
-			sf::Event event;
-			while (window.pollEvent(event))
-			{
-				if (event.type == sf::Event::Closed)
-					window.close();
-			}
-
-			window.clear();
-			window.draw(shape);
-			window.display();
+			if (event.type == sf::Event::Closed)
+				window.close();
 		}
 
-		return 0;
+		window.clear(sf::Color::White);
+		level.Draw(window);
+		window.display();
 	}
+
+	return 0;
+}
