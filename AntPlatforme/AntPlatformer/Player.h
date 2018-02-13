@@ -7,6 +7,6 @@ private:
 	sf::Vector2f getMoveDirection();
 	void Calculate();
 public:
-
+	Player();
 	~Player();
 };
