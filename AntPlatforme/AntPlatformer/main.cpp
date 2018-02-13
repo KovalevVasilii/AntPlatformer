@@ -1,14 +1,12 @@
-<<<<<<< HEAD
 #include <iostream>
-#include "Object.h"
 #include "Level.h"
-#include <iostream>
 #include <sstream>
-#include "iostream"
-#include "level.h"
 #include <vector>
 #include <list>
+#include "Player.h"
+#include "enemy.h"
 
+sf::View view;
 
 int main()
 {
@@ -18,57 +16,50 @@ int main()
 	sf::RenderWindow window;
 	window.create(sf::VideoMode(1600, 700), "Antplatformer");
 
-	while (window.isOpen())
-	{
-		sf::Event event;
+	sf::Image heroImage;
+	heroImage.loadFromFile("images/hero_sprite.png");
 
-		while (window.pollEvent(event))
+	sf::Image easyEnemyImage;
+	easyEnemyImage.loadFromFile("images/enemy_sprite.png");
+	easyEnemyImage.createMaskFromColor(sf::Color(255, 0, 0));
+
+	ObjectT player = level.GetObjectT("player");
+	ObjectT easyEnemyObject = level.GetObjectT("easyEnemy");
+
+	Size playerSize(player.rect.left, player.rect.top, 150, 210);
+	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 200, 97);
+	Player player1(heroImage, "Player", playerSize,100,level,view);
+	Enemy easyEnemy(easyEnemyImage, "Enemy",enemySize,100, level);
+
+	sf::Clock clock;
+	try {
+		while (window.isOpen())
 		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+			float time = clock.getElapsedTime().asMicroseconds();
 
-		window.clear(sf::Color::White);
-		level.Draw(window);
-		window.display();
+			clock.restart();
+			time = time / 800;
+			sf::Event event;
+
+			while (window.pollEvent(event))
+			{
+				if (event.type == sf::Event::Closed)
+					window.close();
+			}
+			player1.update(time);
+			easyEnemy.update(time);
+			window.setView(view);
+			window.clear(sf::Color::White);
+			level.Draw(window);
+			//window.draw(easyEnemy.sprite);
+			window.draw(player1.sprite);
+			window.display();
+		}
+	}
+	catch (...)
+	{
+		std::cout << "WARNING" << std::endl;
 	}
 
 	return 0;
-=======
-#include <iostream>
-#include "Object.h"
-#include "Level.h"
-#include <iostream>
-#include <sstream>
-#include "iostream"
-#include "level.h"
-#include <vector>
-#include <list>
-
-
-int main()
-{
-	Level level;
-	level.LoadFromFile("mapN.tmx");
-
-	sf::RenderWindow window;
-	window.create(sf::VideoMode(1600, 700), "Antplatformer");
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear(sf::Color::White);
-		level.Draw(window);
-		window.display();
-	}
-
-	return 0;
->>>>>>> 3402bdc4128afa363b889b2bacf3f5c6d47b8d15
 }

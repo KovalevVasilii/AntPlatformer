@@ -10,10 +10,10 @@ enum PersonType
 
 enum StatePerson
 {
-	left, 
+	left,
 	right,
-	up, 
-	down, 
+	up,
+	down,
 	jump,
 	idle
 };

@@ -1,7 +1,2 @@
-<<<<<<< HEAD
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.16299.0
-Debug|x64|C:\Users\user\source\repos\AntPlatformer\AntPlatforme\|
-=======
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.16299.0
-Debug|x64|C:\Users\home\Source\Repos\AntPlatformer2\AntPlatforme\|
->>>>>>> 3402bdc4128afa363b889b2bacf3f5c6d47b8d15
+Debug|x64|C:\Users\user\Desktop\AntPlatformer-master\AntPlatforme\|

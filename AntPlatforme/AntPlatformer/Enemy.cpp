@@ -1,7 +1,4 @@
-#include "Enemy.h"
-
-
-
+#include "enemy.h"
 void Enemy::checkCollisionWithMap(float Dx, float Dy)
 {
 	for (int i = 0; i<obj.size(); i++)
@@ -19,10 +16,10 @@ void Enemy::checkCollisionWithMap(float Dx, float Dy)
 void Enemy::update(float time)
 {
 	if (name == "Enemy") {
-		moveTimer += time;if (moveTimer>3000){ dx *= -1; moveTimer = 0; }//меняет направление примерно каждые 3 сек
+		moveTimer += time; if (moveTimer>3000) { dx *= -1; moveTimer = 0; }//меняет направление примерно каждые 3 сек
 		checkCollisionWithMap(dx, 0);
 		size.x += dx * time;
-		sprite->setPosition(size.x + size.w / 2, size.y + size.h / 2);
+		sprite.setPosition(size.x + size.w / 2, size.y + size.h / 2);
 		if (health <= 0) { life = false; }
 	}
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="200" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="18">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="200" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="28">
  <tileset firstgid="1" name="tileset" tilewidth="20" tileheight="20" tilecount="11088" columns="176">
   <image source="tileset.png" width="3520" height="1266"/>
  </tileset>
@@ -137,5 +137,6 @@
   <object id="15" name="obstruction" x="3210" y="416" width="112" height="102"/>
   <object id="16" name="obstruction" x="2801" y="618" width="140" height="84"/>
   <object id="17" name="obstruction" x="3729" y="420" width="113" height="102"/>
+  <object id="25" name="player" type="Solid" x="162" y="539" width="60" height="57"/>
  </objectgroup>
 </map>

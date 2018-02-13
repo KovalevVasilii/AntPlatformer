@@ -1,47 +1,22 @@
-<<<<<<< HEAD
 #pragma once
 #include "Person.h"
-#include "view.h"
-class Level;
+#include "Level.h"
 class Player :
 	public Person
 {
 public:
-	Player(sf::Sprite &sprite, std::string name, Size size, sf::Vector2f location, float health,Level& lvl):
-		Person(sprite, name, size,location,health){
-		state=idle; obj = lvl.GetAllObjects();
+	Player(sf::Image &image, std::string name, Size size, float health, Level& lvl,sf::View view) :
+		Person(image, name, size, health),view(view) {
+		state = idle; obj = lvl.GetAllObjectTs();
 		if (name == "Player") {
 			sprite.setTextureRect(sf::IntRect(4, 19, size.w, size.h));
 		}
+		
 	}
+	void setPlayerCoordinateForView(float x, float y, sf::View view);
 	void checkCollisionWithMap(float Dx, float Dy);
 	void control();
 	void update(float time);
-	lvl::View view;
-	
-	~Player();
+	sf::View view;
+	~Player(){}
 };
-=======
-#pragma once
-#include "Person.h"
-#include "view.h"
-class Level;
-class Player :
-	public Person
-{
-public:
-	Player(sf::Sprite &sprite, std::string name, Size size, sf::Vector2f location, float health,Level& lvl):
-		Person(sprite, name, size,location,health){
-		state=idle; obj = lvl.GetAllObjects();
-		if (name == "Player") {
-			sprite.setTextureRect(sf::IntRect(4, 19, size.w, size.h));
-		}
-	}
-	void checkCollisionWithMap(float Dx, float Dy);
-	void control();
-	void update(float time);
-	lvl::View view;
-	
-	~Player();
-};
->>>>>>> 3402bdc4128afa363b889b2bacf3f5c6d47b8d15

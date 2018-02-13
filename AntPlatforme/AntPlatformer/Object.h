@@ -1,55 +1,29 @@
-<<<<<<< HEAD
 #ifndef OBJECT_H
 #define OBJECT_H
 #include <SFML/Graphics.hpp>
 #include "constants.h"
-#include "VectorOperations.h"
+
 #include "size.h"
 class Object
 {
 public:
 	Object();
 	~Object();
-	Object(sf::Sprite sprite, sf::Vector2f location, Size size)
-			:location(location), size(size),sprite(&sprite) {}
-	sf::Vector2f getLocation() { return location; }
+	Object(sf::Image image, Size size)
+		: size(size), image(&image) 
+	{
+		texture.loadFromImage(image);
+		sprite.setTexture(texture);
+		sprite.setOrigin(size.w / 2, size.h / 2);
+	}
 	Size getSize() { return size; }
 	sf::FloatRect getRect() { return sf::FloatRect(size.x, size.y, size.w, size.h); }
-	void setLocation(sf::Vector2f location) { this->location = location; }
-	sf::Sprite getSprite() { return *sprite; }
-protected:
-	sf::Sprite *sprite;
-	Size size; 
-	sf::Vector2f location;
+	sf::Image getImage() { return *image; }
+	sf::Image *image;
+	sf::Texture texture;
+	sf::Sprite sprite;
+	Size size;
 
 };
 #endif OBJECT_H
 
-=======
-#ifndef OBJECT_H
-#define OBJECT_H
-#include <SFML/Graphics.hpp>
-#include "constants.h"
-#include "VectorOperations.h"
-#include "size.h"
-class Object
-{
-public:
-	Object();
-	~Object();
-	Object(sf::Sprite sprite, sf::Vector2f location, Size size)
-			:location(location), size(size),sprite(&sprite) {}
-	sf::Vector2f getLocation() { return location; }
-	Size getSize() { return size; }
-	sf::FloatRect getRect() { return sf::FloatRect(size.x, size.y, size.w, size.h); }
-	void setLocation(sf::Vector2f location) { this->location = location; }
-	sf::Sprite getSprite() { return *sprite; }
-protected:
-	sf::Sprite *sprite;
-	Size size; 
-	sf::Vector2f location;
-
-};
-#endif OBJECT_H
-
->>>>>>> 3402bdc4128afa363b889b2bacf3f5c6d47b8d15
