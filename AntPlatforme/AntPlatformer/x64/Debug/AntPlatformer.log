@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Weapon.cpp
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
@@ -54,3 +55,38 @@ c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16)
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Создание кода...
+=======
+﻿  Weapon.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+  VectorOperations.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.cpp(31): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.cpp(49): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.cpp(52): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+  tinyxmlparser.cpp
+  tinyxmlerror.cpp
+  tinyxml.cpp
+  tinystr.cpp
+  Player.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+  Person.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+  Object.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+  main.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+  Level.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(13): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(94): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(95): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(145): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(200): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(220): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(221): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(222): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(223): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  Создание кода...
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\level.cpp(267): warning C4715: Level::GetObjectT: значение возвращается не при всех путях выполнения
+  AntPlatformer.vcxproj -> C:\Users\home\Source\Repos\AntPlatformer2\AntPlatforme\x64\Debug\AntPlatformer.exe
+  AntPlatformer.vcxproj -> C:\Users\home\Source\Repos\AntPlatformer2\AntPlatforme\x64\Debug\AntPlatformer.pdb (Partial PDB)
+>>>>>>> 3402bdc4128afa363b889b2bacf3f5c6d47b8d15
