@@ -1,5 +1,56 @@
-﻿  Person.cpp
+﻿  Weapon.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Player.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.h(10): error C2027: использование неопределенного типа "Level"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.h(3): note:  см. объявление "Level"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.h(10): error C2228: выражение слева от ".GetAllObjects" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(6): warning C4551: в вызове функции отсутствует список аргументов
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(8): warning C4305: =: усечение из "double" в "float"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(11): warning C4305: =: усечение из "double" в "float"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(15): warning C4305: =: усечение из "double" в "float"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(26): error C2027: использование неопределенного типа "ObjectT"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(5): note:  см. объявление "ObjectT"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(26): error C2228: выражение слева от ".rect" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(28): error C2027: использование неопределенного типа "ObjectT"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(5): note:  см. объявление "ObjectT"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(28): error C2228: выражение слева от ".name" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(30): error C2027: использование неопределенного типа "ObjectT"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(5): note:  см. объявление "ObjectT"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(30): error C2228: выражение слева от ".rect" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(30): error C2228: выражение слева от ".top" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(31): error C2027: использование неопределенного типа "ObjectT"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(5): note:  см. объявление "ObjectT"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(31): error C2228: выражение слева от ".rect" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(31): error C2228: выражение слева от ".top" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(31): error C2228: выражение слева от ".height" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(32): error C2027: использование неопределенного типа "ObjectT"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(5): note:  см. объявление "ObjectT"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(32): error C2228: выражение слева от ".rect" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(32): error C2228: выражение слева от ".left" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(33): error C2027: использование неопределенного типа "ObjectT"
+  c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(5): note:  см. объявление "ObjectT"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(33): error C2228: выражение слева от ".rect" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(33): error C2228: выражение слева от ".left" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(33): error C2228: выражение слева от ".width" должно представлять класс, структуру или объединение
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(48): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(50): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(52): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(55): error C3861: setPlayerCoordinateForView: идентификатор не найден
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(56): error C3861: setPlayerCoordinateForView: идентификатор не найден
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.cpp(57): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  Person.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.cpp(21): error C2065: shoot: необъявленный идентификатор
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.cpp(22): error C2065: walkShoot: необъявленный идентификатор
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.cpp(24): error C2065: walk: необъявленный идентификатор
   Object.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   main.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\vectoroperations.h(14): warning C4091: static : пропускается слева от "VectorOperations", когда ни одна переменная не объявлена
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(16): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Создание кода...
-LINK : fatal error LNK1104: не удается открыть файл "Box2D.lib"

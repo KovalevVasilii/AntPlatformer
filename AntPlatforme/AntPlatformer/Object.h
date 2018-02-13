@@ -3,23 +3,22 @@
 #include <SFML/Graphics.hpp>
 #include "constants.h"
 #include "VectorOperations.h"
+#include "size.h"
 class Object
 {
 public:
 	Object();
 	~Object();
-	Object(sf::Vector2f location, sf::Vector2f size, double weigth)
-			:location(location), weigth(weigth),size(size) {}
+	Object(sf::Sprite sprite, sf::Vector2f location, Size size)
+			:location(location), size(size),sprite(&sprite) {}
 	sf::Vector2f getLocation() { return location; }
-	sf::Vector2f getSize() { return size; }
-	double getWeight() { return weigth; }
+	Size getSize() { return size; }
+	sf::FloatRect getRect() { return sf::FloatRect(size.x, size.y, size.w, size.h); }
 	void setLocation(sf::Vector2f location) { this->location = location; }
-	void setWeigth(double weigth) { this->weigth = weigth; }
 	sf::Sprite getSprite() { return *sprite; }
 protected:
 	sf::Sprite *sprite;
-	double weigth;
-	sf::Vector2f size; 
+	Size size; 
 	sf::Vector2f location;
 
 };
