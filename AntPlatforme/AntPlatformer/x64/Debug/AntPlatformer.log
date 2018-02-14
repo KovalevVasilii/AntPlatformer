@@ -1,2 +1,7 @@
-﻿  AntPlatformer.vcxproj -> C:\Users\home\Source\Repos\AntPlatformer2\AntPlatforme\x64\Debug\AntPlatformer.exe
+﻿  main.cpp
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\object.h(17): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\object.h(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\home\source\repos\antplatformer2\antplatforme\antplatformer\main.cpp(38): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  AntPlatformer.vcxproj -> C:\Users\home\Source\Repos\AntPlatformer2\AntPlatforme\x64\Debug\AntPlatformer.exe
   AntPlatformer.vcxproj -> C:\Users\home\Source\Repos\AntPlatformer2\AntPlatforme\x64\Debug\AntPlatformer.pdb (Partial PDB)

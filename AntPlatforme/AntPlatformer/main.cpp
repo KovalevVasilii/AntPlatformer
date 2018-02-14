@@ -51,7 +51,7 @@ int main()
 			//window.setView(view);
 			window.clear(sf::Color::White);
 			level.Draw(window);
-			window.draw(easyEnemy.sprite);
+			//window.draw(easyEnemy.sprite);
 			window.draw(player1.sprite);
 			window.display();
 		}
