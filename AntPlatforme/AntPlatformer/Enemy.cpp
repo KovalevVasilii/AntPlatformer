@@ -15,8 +15,11 @@ void Enemy::checkCollisionWithMap(float Dx, float Dy)
 }
 void Enemy::update(float time)
 {
-	if (name == "Enemy") {
-		moveTimer += time; if (moveTimer>3000) { dx *= -1; moveTimer = 0; }//меняет направление примерно каждые 3 сек
+	if (name == "easyEnemy") {
+		moveTimer += time; if (moveTimer>3000) 
+		{ 
+			dx *= -1; moveTimer = 0; 
+		}
 		checkCollisionWithMap(dx, 0);
 		size.x += dx * time;
 		sprite.setPosition(size.x + size.w / 2, size.y + size.h / 2);

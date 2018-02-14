@@ -27,7 +27,7 @@ int main()
 	ObjectT easyEnemyObject = level.GetObjectT("easyEnemy");
 
 	Size playerSize(player.rect.left, player.rect.top, 40, 30);
-	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 40, 30);
+	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 50, 60);
 	Player player1(heroImage, "Player", playerSize,100,level,view);
 	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, level);
 
