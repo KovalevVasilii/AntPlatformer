@@ -11,7 +11,7 @@ sf::View view;
 int main()
 {
 	Level level;
-	level.LoadFromFile("mapN.tmx");
+	level.LoadFromFile("map.tmx");
 
 	sf::RenderWindow window;
 	window.create(sf::VideoMode(1600, 700), "Antplatformer");
@@ -51,7 +51,7 @@ int main()
 			//window.setView(view);
 			window.clear(sf::Color::White);
 			level.Draw(window);
-			window.draw(easyEnemy.sprite);
+			//window.draw(easyEnemy.sprite);
 			window.draw(player1.sprite);
 			window.display();
 		}
