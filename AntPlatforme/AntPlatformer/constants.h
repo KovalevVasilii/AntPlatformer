@@ -10,10 +10,12 @@ enum PersonType
 
 enum StatePerson
 {
-	idle = 0,
-	walk,
-	shoot,
-	walkShoot
+	left,
+	right,
+	up,
+	down,
+	jump,
+	idle
 };
 
 static const sf::Vector2f originDirection = sf::Vector2f(1, 0);

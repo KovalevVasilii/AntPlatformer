@@ -2,25 +2,27 @@
 #define OBJECT_H
 #include <SFML/Graphics.hpp>
 #include "constants.h"
-#include "VectorOperations.h"
+
+#include "size.h"
 class Object
 {
 public:
 	Object();
 	~Object();
-	Object(sf::Vector2f location, sf::Vector2f size, double weigth)
-			:location(location), weigth(weigth),size(size) {}
-	sf::Vector2f getLocation() { return location; }
-	sf::Vector2f getSize() { return size; }
-	double getWeight() { return weigth; }
-	void setLocation(sf::Vector2f location) { this->location = location; }
-	void setWeigth(double weigth) { this->weigth = weigth; }
-	sf::Sprite getSprite() { return *sprite; }
-protected:
-	sf::Sprite *sprite;
-	double weigth;
-	sf::Vector2f size; 
-	sf::Vector2f location;
+	Object(sf::Image image, Size size)
+		: size(size), image(&image) 
+	{
+		texture.loadFromImage(image);
+		sprite.setTexture(texture);
+		sprite.setOrigin(size.w / 2, size.h / 2);
+	}
+	Size getSize() { return size; }
+	sf::FloatRect getRect() { return sf::FloatRect(size.x, size.y, size.w, size.h); }
+	sf::Image getImage() { return *image; }
+	sf::Image *image;
+	sf::Texture texture;
+	sf::Sprite sprite;
+	Size size;
 
 };
 #endif OBJECT_H
