@@ -17,19 +17,19 @@ int main()
 	window.create(sf::VideoMode(1600, 700), "Antplatformer");
 
 	sf::Image heroImage;
-	heroImage.loadFromFile("images/hero_sprite.png");
+	heroImage.loadFromFile("images/hero_aprite.gif");
+	heroImage.createMaskFromColor(sf::Color(0, 0, 0));
 
 	sf::Image easyEnemyImage;
 	easyEnemyImage.loadFromFile("images/enemy_sprite.png");
-	easyEnemyImage.createMaskFromColor(sf::Color(255, 0, 0));
 
 	ObjectT player = level.GetObjectT("player");
 	ObjectT easyEnemyObject = level.GetObjectT("easyEnemy");
 
-	Size playerSize(player.rect.left, player.rect.top, 150, 210);
-	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 200, 97);
+	Size playerSize(player.rect.left, player.rect.top, 40, 30);
+	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 40, 30);
 	Player player1(heroImage, "Player", playerSize,100,level,view);
-	Enemy easyEnemy(easyEnemyImage, "Enemy",enemySize,100, level);
+	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, level);
 
 	sf::Clock clock;
 	try {
@@ -48,10 +48,10 @@ int main()
 			}
 			player1.update(time);
 			easyEnemy.update(time);
-			window.setView(view);
+			//window.setView(view);
 			window.clear(sf::Color::White);
 			level.Draw(window);
-			//window.draw(easyEnemy.sprite);
+			window.draw(easyEnemy.sprite);
 			window.draw(player1.sprite);
 			window.display();
 		}

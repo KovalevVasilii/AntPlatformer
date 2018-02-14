@@ -4,7 +4,7 @@
 		sf::View view;
 		void setPlayerCoordinateForView(float x, float y) {
 			float tempX = x; float tempY = y;
-			if (y > 624) tempY = 624;
+			if (y > 1600) tempY = 700;
 
 			view.setCenter(tempX, tempY);
 		}

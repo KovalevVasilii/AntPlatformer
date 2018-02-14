@@ -1,17 +1,11 @@
-﻿  Player.cpp
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(17): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(5): warning C4551: в вызове функции отсутствует список аргументов
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(15): warning C4305: =: усечение из "double" в "float"
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(30): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(31): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(32): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(33): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(56): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(58): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(60): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(63): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(64): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(65): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-  AntPlatformer.vcxproj -> C:\Users\user\Desktop\AntPlatformer-master\AntPlatforme\x64\Debug\AntPlatformer.exe
+﻿  enemy.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(17): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(9): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(10): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(11): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(12): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(21): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  AntPlatformer.vcxproj -> C:\Users\user\source\repos\AntPlatformer\AntPlatforme\x64\Debug\AntPlatformer.exe
