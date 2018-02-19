@@ -8,8 +8,8 @@ class Person :
 {
 public:
 	Person();
-	Person(sf::Image &image, std::string name, Size size,float health) :name(name), health(health),
-		Object(image,size)
+	Person(sf::Image &image, std::string name, Size size,float health, Level *lvl) 
+		:name(name), health(health), lvl(lvl), Object(image,size)
 	{
 		dx = 0; dy = 0; moveTimer = 0;
 		life = true; onGround = false; isMove = false;
@@ -23,7 +23,7 @@ public:
 	float lastTime;
 protected:
 	std::string name;
-	std::vector<ObjectT> obj;
+	Level *lvl;
 	double health;
 	bool life;
 	bool isMove;

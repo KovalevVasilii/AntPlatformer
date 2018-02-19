@@ -22,17 +22,32 @@
 		}
 	void Player::checkCollisionWithMap(float Dx, float Dy)
 	{
-		for (int i = 0; i<obj.size(); i++)
-			if (getRect().intersects(obj[i].rect))
+		std::vector<ObjectT>* obj(lvl->GetAllObjectTs());
+		for (auto it=obj->begin();it!=obj->end();)
+		{
+			if (getRect().intersects(it->rect))
 			{
-				if (obj[i].name == "solid")
+				if (it->name == "solid")
 				{
-					if (Dy>0) { size.y = obj[i].rect.top - size.h;  dy = 0; onGround = true; }
-					if (Dy<0) { size.y = obj[i].rect.top + obj[i].rect.height;   dy = 0; }
-					if (Dx>0) { size.x = obj[i].rect.left - size.w; }
-					if (Dx<0) { size.x = obj[i].rect.left + obj[i].rect.width; }
+					if (Dy>0) { size.y = it->rect.top - size.h;  dy = 0; onGround = true; }
+					if (Dy<0) { size.y = it->rect.top + it->rect.height;   dy = 0; }
+					if (Dx>0) { size.x = it->rect.left - size.w; }
+					if (Dx<0) { size.x = it->rect.left + it->rect.width; }
 				}
+				else
+					if (it->name == "coin")
+					{
+						it=obj->erase(it--);
+						coin++;
+					}
+					else
+						if (it->name == "die")
+						{
+							//смерть
+						}
 			}
+			it++;
+		}
 	}
 	void Player::update(float time)
 	{
@@ -70,4 +85,9 @@
 		if (y > 624) tempY = 624;
 
 		view.setCenter(tempX, tempY);
+	}
+
+	int Player::getCoin() const
+	{
+		return coin;
 	}

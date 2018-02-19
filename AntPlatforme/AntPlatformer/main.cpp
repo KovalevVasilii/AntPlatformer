@@ -28,8 +28,19 @@ int main()
 
 	Size playerSize(player.rect.left, player.rect.top, 40, 30);
 	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 40, 30);
-	Player player1(heroImage, "Player", playerSize,100,level,view);
-	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, level);
+	Player player1(heroImage, "Player", playerSize,100,view, &level);
+	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, &level);
+
+	sf::Texture coinT;
+	coinT.loadFromFile("coin.png");
+	
+	sf::Font textF;
+	textF.loadFromFile("lobster.ttf");
+	sf::Text coinText;
+	coinText.setFont(textF);
+	coinText.setCharacterSize(20);
+	coinText.setFillColor(sf::Color::Blue);
+	coinText.setPosition(window.getSize().x - 150,40);
 
 	sf::Clock clock;
 	try {
@@ -50,9 +61,21 @@ int main()
 			easyEnemy.update(time);
 			//window.setView(view);
 			window.clear(sf::Color::White);
+			std::vector<sf::Sprite> coins;
+			std::vector<ObjectT> coinsObj = level.GetObjectTs("coin");
+			for (auto it = coinsObj.begin(); it != coinsObj.end(); it++)
+			{
+				sf::Sprite coin;
+				coin.setTexture(coinT);
+				coin.setPosition(it->rect.left, it->rect.top);
+				coins.push_back(coin);
+				window.draw(coin);
+			}
+			coinText.setString("Coins: "+std::to_string(player1.getCoin()));
 			level.Draw(window);
 			//window.draw(easyEnemy.sprite);
 			window.draw(player1.sprite);
+			window.draw(coinText);
 			window.display();
 		}
 	}

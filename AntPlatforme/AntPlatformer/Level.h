@@ -34,7 +34,7 @@ public:
 	bool LoadFromFile(std::string filename);
 	ObjectT GetObjectT(std::string name);
 	std::vector<ObjectT> GetObjectTs(std::string name);
-	std::vector<ObjectT> GetAllObjectTs();
+	std::vector<ObjectT>* GetAllObjectTs();
 	void Draw(sf::RenderWindow &window);
 	sf::Vector2i GetTileSize();
 

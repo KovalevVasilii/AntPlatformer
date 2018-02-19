@@ -277,9 +277,9 @@ std::vector<ObjectT> Level::GetObjectTs(std::string name)
 }
 
 
-std::vector<ObjectT> Level::GetAllObjectTs()
+std::vector<ObjectT>* Level::GetAllObjectTs()
 {
-	return objectTs;
+	return &objectTs;
 };
 
 
