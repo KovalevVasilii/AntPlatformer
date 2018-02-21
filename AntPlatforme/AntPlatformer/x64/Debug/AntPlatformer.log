@@ -2,10 +2,18 @@
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(17): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(9): warning C4244: =: преобразование "float" в "int", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(10): warning C4244: =: преобразование "float" в "int", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(11): warning C4244: =: преобразование "float" в "int", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(12): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(24): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(25): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(13): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(22): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.cpp(23): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Создание кода...
+  Компиляция...
+  main.cpp
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(17): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\main.cpp(51): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+  Создание кода...
   AntPlatformer.vcxproj -> C:\Users\user\source\repos\AntPlatformer\AntPlatforme\x64\Debug\AntPlatformer.exe

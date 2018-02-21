@@ -5,18 +5,22 @@ class Player :
 	public Person
 {
 public:
-	Player(sf::Image &image, std::string name, Size size, float health, Level& lvl,sf::View view) :
-		Person(image, name, size, health),view(view) {
-		state = idle; obj = lvl.GetAllObjectTs();
+	Player(sf::Image &image, std::string name, Size size, float health, sf::View& view, Level *lvl) :
+		Person(image, name, size, health,lvl),view(&view),coin(0){
+		state = idle; 
 		if (name == "Player") {
-			sprite.setTextureRect(sf::IntRect(4, 19, size.w, size.h));
+			CurrentFrame = 1;
+			sprite.setTextureRect(sf::IntRect(49 * int(CurrentFrame), 0, 49, 50));
 		}
 		
 	}
-	void setPlayerCoordinateForView(float x, float y, sf::View view);
+	int getCoin() const;
+	void setPlayerCoordinateForView(float x, float y, sf::View& view);
 	void checkCollisionWithMap(float Dx, float Dy);
-	void control();
+	void control(float time);
 	void update(float time);
-	sf::View view;
+	float CurrentFrame;
+	sf::View* view;
+	int coin;
 	~Player(){}
 };
