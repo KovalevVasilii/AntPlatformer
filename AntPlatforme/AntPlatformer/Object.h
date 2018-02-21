@@ -16,7 +16,7 @@ public:
 		sprite.setTexture(texture);
 		sprite.setOrigin(size.w / 2, size.h / 2);
 	}
-	Size getSize() { return size; }
+	Size getSize() const { return size; }
 	sf::FloatRect getRect() { return sf::FloatRect(size.x, size.y, size.w, size.h); }
 	sf::Image getImage() { return *image; }
 	sf::Image *image;

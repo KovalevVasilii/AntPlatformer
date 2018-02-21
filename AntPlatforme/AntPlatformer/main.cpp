@@ -21,14 +21,15 @@ int main()
 
 	sf::Image easyEnemyImage;
 	easyEnemyImage.loadFromFile("images/enemy_sprite.png");
+	easyEnemyImage.createMaskFromColor(sf::Color(255, 255, 255));
 
 	ObjectT player = level.GetObjectT("player");
 	ObjectT easyEnemyObject = level.GetObjectT("easyEnemy");
 
 	Size playerSize(player.rect.left, player.rect.top, 49, 50);
-	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 50, 65);
-	Player player1(heroImage, "Player", playerSize,100,view, &level);
-	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, &level);
+	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 15, 15);
+	Player player1(heroImage, "Player", playerSize,100,view, &level,0.5);
+	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, &level,500,0.5);
 
 	sf::Texture coinT;
 	coinT.loadFromFile("coin.png");
@@ -44,6 +45,10 @@ int main()
 	diedText.setFillColor(sf::Color::Red);
 	sf::Text exitText("(press space to exit)", textF, 30);
 	exitText.setFillColor(sf::Color::Red);
+	sf::Text healthText;
+	healthText.setFont(textF);
+	healthText.setCharacterSize(20);
+	healthText.setFillColor(sf::Color::Blue);
 	sf::Clock clock;
 	try {
 		while (window.isOpen())
@@ -63,7 +68,7 @@ int main()
 			if (player1.isAlive())
 			{
 				player1.update(time);
-				easyEnemy.update(time);
+				easyEnemy.update(time, &player1);
 				window.setView(view);
 				window.clear(sf::Color::White);
 				std::vector<sf::Sprite> coins;
@@ -78,11 +83,39 @@ int main()
 				}
 				coinText.setString("Coins: " + std::to_string(player1.getCoin()));
 				coinText.setPosition(view.getCenter().x+300, view.getCenter().y-350);
+				healthText.setString("Health: " + std::to_string(player1.getHealth()));
+				healthText.setPosition(view.getCenter().x + 300, view.getCenter().y - 300);
 				level.Draw(window);
 				window.draw(easyEnemy.sprite);
 				window.draw(player1.sprite);
 				window.draw(coinText);
-				window.display();
+				window.draw(healthText);
+				if (coins.empty())
+				{
+					//std::cout << "You win" << std::endl;
+					diedText.setString("You win!");
+					diedText.setFillColor(sf::Color::Green);
+					diedText.setPosition(view.getCenter().x - 75, view.getCenter().y + 20);
+					exitText.setFillColor(sf::Color::Green);
+					exitText.setPosition(view.getCenter().x - 50, view.getCenter().y + 120);
+					window.draw(diedText);
+					window.draw(exitText);
+					bool static flag = true;
+					if (flag == true)
+					{
+						flag = false;
+						window.display();
+					}
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+					{
+						exit(0);
+					}
+				}
+				else
+				{
+					window.display();
+				}
+				
 			}
 			else
 			{

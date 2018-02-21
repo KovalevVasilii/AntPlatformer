@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="110" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="61">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="110" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="63">
  <tileset firstgid="1" name="generic_platformer_tiles" tilewidth="20" tileheight="20" tilecount="1938" columns="51">
   <image source="generic_platformer_tiles.png" width="1024" height="768"/>
  </tileset>
@@ -124,9 +124,9 @@
   <object id="45" name="coin" x="1618" y="319.5" width="20" height="19"/>
   <object id="46" name="coin" x="1858" y="419.5" width="20" height="19"/>
   <object id="47" name="coin" x="1959" y="381.5" width="20" height="19"/>
-  <object id="48" name="coin" x="2060" y="438.5" width="20" height="19"/>
+  <object id="48" name="coin" x="2005.67" y="452.833" width="20" height="19"/>
   <object id="49" name="die" x="0" y="689" width="2200" height="9"/>
-  <object id="50" name="easyEnemy" x="671.5" y="69" width="27" height="30"/>
+  <object id="50" name="easyEnemy" x="815.5" y="76" width="27" height="30"/>
   <object id="51" name="solid" x="627.5" y="163.5" width="17" height="14"/>
   <object id="52" name="solid" x="609.5" y="156" width="17" height="14"/>
   <object id="53" name="solid" x="597.5" y="145" width="17" height="14"/>
@@ -137,6 +137,8 @@
   <object id="58" name="solid" x="749.5" y="149" width="17" height="14"/>
   <object id="59" name="solid" x="761.5" y="136" width="17" height="14"/>
   <object id="60" name="solid" x="777.5" y="129" width="17" height="14"/>
+  <object id="61" name="solid" x="782" y="121.5" width="316" height="65"/>
+  <object id="62" name="win" x="2138" y="492.833" width="55" height="19"/>
  </objectgroup>
  <layer name="Слой тайлов 2" width="110" height="35">
   <data encoding="csv">

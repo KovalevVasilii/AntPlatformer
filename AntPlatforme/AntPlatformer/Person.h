@@ -16,6 +16,7 @@ public:
 	}
 	~Person();
 	bool isAlive() { return life; }
+	int getHealth() { return health; }
 	void hit(Weapon& weapon);
 	//virtual void update() = 0;
 	//virtual bool atack() = 0;
