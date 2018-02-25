@@ -1,6 +1,8 @@
-#pragma once
+#ifndef ENEMY_H
+#define ENEMY_H
+class Player;
 #include "Person.h"
-#include "Player.h"
+//#include "Player.h"
 #include "Level.h"
 class Enemy :
 	public Person
@@ -13,7 +15,8 @@ public:
 		sprite.setTextureRect(sf::IntRect(55*CurrentFrame, 10, 50,65));
 
 	}
-	void update(float time, const Player* player);
+	float getlDX() { return lDX; }
+	void update(float time, Player& player);
 	~Enemy();
 private:
 	void checkCollisionWithMap(float Dx, float Dy);
@@ -21,5 +24,7 @@ private:
 	float radOfView;
 	float speed;
 	float CurrentFrame;
+	float lDX;
 
 };
+#endif ENEMY_H

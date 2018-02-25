@@ -49,58 +49,70 @@
 					it = obj->erase(it--);
 					coin++;
 				}
-				else if (it->name == "easyEnemy")
-					
-				{
-					if (lastTime < time)
-					{
-						health -= 20;
-						lastTime +=2;
-					}
-					//std::cout <<"Last Time "<< lastTime << std::endl;
-					//std::cout << "Time "<< time << std::endl;
-					
-					
-					
-				}
 				else if (it->name == "die")
 				{
 					health = 0;
 					life = false;
 				}
+				else if (it->name == "win")
+				{
+					///
+				}
 			}
 			it++;
 		}
 	}
-	void Player::update(float time)
+	void Player::update(float time, std::list<Enemy*> enemyList)
 	{
-		control(time);
-		switch (state)
+		for (auto it : enemyList)
 		{
-		case right:
-			dx = curSpeed;
-			break;
-		case left:
-			dx = -curSpeed;
-			break;
-		case up: 
-			break;
-		case down:
-			dx = 0; 
-			break;
-		case idle:
-			break;
+			if (it->getRect().intersects(getRect()))
+			{
+				if (it->getName() == "easyEnemy") {
+					std::cout << it->getDx() << std::endl;
+					if (it->getlDX() > 0)
+					{
+						it->setSizeX(size.x - it->getSize().w);
+						it->setDx(0);
+						//std::cout << "KEK" << std::endl;
+					}
+					if (it->getlDX() < 0)
+					{
+						it->setSizeX(size.x + it->getSize().w);
+						it->setDx(0);
+					}
+				}
+				//if (dx < 0) { size.x = size.x; }
+				//if (dx > 0) { size.x = getSize().x - size.w;}
+			}
+			control(time);
+			switch (state)
+			{
+			case right:
+				dx = curSpeed;
+				break;
+			case left:
+				dx = -curSpeed;
+				break;
+			case up:
+				break;
+			case down:
+				dx = 0;
+				break;
+			case idle:
+				break;
+			}
+			size.x += dx * time;
+			checkCollisionWithMap(dx, 0, time);
+			size.y += dy * time;
+			checkCollisionWithMap(0, dy, time);
+			sprite.setPosition(size.x + size.w / 2, size.y + size.h / 2);
+			if (health <= 0) { life = false; }
+			if (!isMove) { curSpeed = 0; }
+			setPlayerCoordinateForView(size.x, size.y, *view);
+			if (life) { setPlayerCoordinateForView(size.x, size.y, *view); }
+			dy = dy + 0.0015*time;
 		}
-		size.x += dx * time;
-		checkCollisionWithMap(dx, 0, time);
-		size.y += dy * time;
-		checkCollisionWithMap(0, dy,  time);
-		sprite.setPosition(size.x + size.w / 2, size.y + size.h / 2);
-		if (health <= 0) { life = false; }
-		if (!isMove) { curSpeed = 0; }
-		setPlayerCoordinateForView(size.x, size.y,*view);
-		if (life) { setPlayerCoordinateForView(size.x, size.y, *view); }
-		dy = dy + 0.0015*time;
 	}
 	void Player::setPlayerCoordinateForView(float x, float y,sf::View& view) 
 	{

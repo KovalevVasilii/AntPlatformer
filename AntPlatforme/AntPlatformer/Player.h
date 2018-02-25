@@ -1,6 +1,9 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "Person.h"
 #include "Level.h"
+#include <list>
+#include "enemy.h"
 class Player :
 	public Person
 {
@@ -19,8 +22,7 @@ public:
 	int getCoin() const;
 	sf::Sprite& getSprite() { return sprite; }
 	void setPlayerCoordinateForView(float x, float y, sf::View& view);
-	void update(float time);
-	int getDx() const { return dx; }
+	void update(float time, std::list<Enemy*> enemyList);
 	StatePerson getState() const { return state; }
 	~Player() {}
 private:
@@ -35,3 +37,4 @@ private:
 	float curSpeed;
 
 };
+#endif PLAYER_H

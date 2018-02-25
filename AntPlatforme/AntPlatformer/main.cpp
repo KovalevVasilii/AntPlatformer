@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include "Level.h"
 #include <sstream>
 #include <vector>
@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "enemy.h"
 #include "view.h"
+#include <memory>
 
 int main()
 {
@@ -18,7 +19,7 @@ int main()
 	sf::Image heroImage;
 	heroImage.loadFromFile("images/hero_aprite.gif");
 	heroImage.createMaskFromColor(sf::Color(0, 128, 0));
-
+	
 	sf::Image easyEnemyImage;
 	easyEnemyImage.loadFromFile("images/enemy_sprite.png");
 	easyEnemyImage.createMaskFromColor(sf::Color(255, 255, 255));
@@ -26,11 +27,14 @@ int main()
 	ObjectT player = level.GetObjectT("player");
 	ObjectT easyEnemyObject = level.GetObjectT("easyEnemy");
 
+	
 	Size playerSize(player.rect.left, player.rect.top, 49, 50);
-	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 15, 15);
-	Player player1(heroImage, "Player", playerSize,100,view, &level,0.5);
-	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, &level,500,0.5);
-
+	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 50, 45);
+	//std::shared_ptr<Player> player1 = std::make_shared<Player>(heroImage, "Player", playerSize, 100, view, &level, 0.5);
+	Player player1(heroImage, "Player", playerSize, 100, view, &level, 0.5);
+	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, &level,150,0.3);
+	std::list<Enemy*> enemyList;
+	enemyList.push_back(&easyEnemy);
 	sf::Texture coinT;
 	coinT.loadFromFile("coin.png");
 	
@@ -67,8 +71,8 @@ int main()
 			}
 			if (player1.isAlive())
 			{
-				player1.update(time);
-				easyEnemy.update(time, &player1);
+				player1.update(time,enemyList);
+				easyEnemy.update(time,player1);
 				window.setView(view);
 				window.clear(sf::Color::White);
 				std::vector<sf::Sprite> coins;
@@ -86,7 +90,11 @@ int main()
 				healthText.setString("Health: " + std::to_string(player1.getHealth()));
 				healthText.setPosition(view.getCenter().x + 300, view.getCenter().y - 300);
 				level.Draw(window);
-				window.draw(easyEnemy.sprite);
+				if (easyEnemy.isAlive())
+				{
+					window.draw(easyEnemy.sprite);
+					//easyEnemy.~Enemy();
+				}
 				window.draw(player1.sprite);
 				window.draw(coinText);
 				window.draw(healthText);

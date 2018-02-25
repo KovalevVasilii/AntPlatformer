@@ -18,6 +18,10 @@ public:
 	bool isAlive() { return life; }
 	int getHealth() { return health; }
 	void hit(Weapon& weapon);
+	std::string getName() { return name; }
+	int getDx() { return dx; }
+	void setDx(int Dx) { dx = Dx; }
+	void setSizeX(float x) { size.x = x; }
 	//virtual void update() = 0;
 	//virtual bool atack() = 0;
 	float speed;
