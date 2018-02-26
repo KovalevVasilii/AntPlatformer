@@ -259,19 +259,23 @@ bool Level::LoadFromFile(std::string filename)
 	return true;
 }
 
-ObjectT Level::GetObjectT(std::string name)
+ObjectT* Level::GetObjectT(std::string name)
 {
 	for (int i = 0; i < objectTs.size(); i++)
 		if (objectTs[i].name == name)
-			return objectTs[i];
+			return &objectTs[i];
 }
 
-std::vector<ObjectT> Level::GetObjectTs(std::string name)
+std::vector<ObjectT*> Level::GetObjectTs(std::string name)
 {
-	std::vector<ObjectT> vec;
+	std::vector<ObjectT*> vec;
 	for (int i = 0; i < objectTs.size(); i++)
+	{
 		if (objectTs[i].name == name)
-			vec.push_back(objectTs[i]);
+		{
+			vec.push_back(&objectTs[i]);
+		}
+	}
 
 	return vec;
 }

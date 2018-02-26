@@ -1,19 +1,32 @@
-#pragma once
+#ifndef ENEMY_H
+#define ENEMY_H
+class Player;
 #include "Person.h"
-
+//#include "Player.h"
 #include "Level.h"
 class Enemy :
 	public Person
 {
 public:
-	Enemy(sf::Image &image, std::string name, Size size,float health, Level* lvl) :
-		Person(image, name, size,health,lvl) {
+	Enemy(sf::Image*image, std::string name, Size size,float health, Level* lvl, float radOfView,float speed, ObjectT* obj) 
+		:radOfView(radOfView),speed(speed),
+		Person(image, name, size,health,lvl, obj) {
 		state = idle; 
-		if (name == "Enemy") {
-			sprite.setTextureRect(sf::IntRect(4, 19, size.w, size.h));
-		}
+		CurrentFrame = 0;
+		sprite.setTextureRect(sf::IntRect(55*CurrentFrame, 10, 50,65));
 	}
-	void checkCollisionWithMap(float Dx, float Dy);
-	void update(float time);
+	
+	float getlDX() { return lDX; }
+	void update(float time, Player& player);
 	~Enemy();
+	void draw(sf::RenderWindow* window);
+private:
+	void checkCollisionWithMap(float Dx, float Dy);
+	int way(Size& hero);
+	float radOfView;
+	float speed;
+	float CurrentFrame;
+	float lDX;
+	
 };
+#endif ENEMY_H

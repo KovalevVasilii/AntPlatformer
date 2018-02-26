@@ -18,6 +18,12 @@ enum StatePerson
 	idle
 };
 
+enum WeaponDirection
+{
+	Wleft,
+	Wright,
+};
+
 static const sf::Vector2f originDirection = sf::Vector2f(1, 0);
 static const sf::Clock CLOCK;
 extern const int FPS_LOCK;

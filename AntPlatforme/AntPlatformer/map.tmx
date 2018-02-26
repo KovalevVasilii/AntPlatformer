@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="110" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="50">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="110" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="64">
  <tileset firstgid="1" name="generic_platformer_tiles" tilewidth="20" tileheight="20" tilecount="1938" columns="51">
-  <image source="../../../AntPlatformer/AntPlatforme/AntPlatformer/generic_platformer_tiles.png" width="1024" height="768"/>
+  <image source="generic_platformer_tiles.png" width="1024" height="768"/>
  </tileset>
  <tileset firstgid="1939" name="generic_platformer_tiles" tilewidth="20" tileheight="20" tilecount="1938" columns="51">
-  <image source="../../../AntPlatformer/AntPlatforme/AntPlatformer/generic_platformer_tiles.png" width="1024" height="768"/>
+  <image source="generic_platformer_tiles.png" width="1024" height="768"/>
  </tileset>
  <layer name="Слой тайлов 3" width="110" height="35">
   <data encoding="csv">
@@ -87,10 +87,10 @@
  <objectgroup name="collision">
   <object id="1" name="solid" x="3" y="557" width="290" height="21"/>
   <object id="2" name="solid" x="2" y="4" width="3" height="548"/>
-  <object id="3" name="solid" x="342" y="416" width="216" height="65"/>
+  <object id="3" name="solid" x="341" y="412" width="216" height="65"/>
   <object id="6" name="solid" x="143" y="294.5" width="117" height="78"/>
   <object id="7" name="solid" x="342" y="114.5" width="235" height="65"/>
-  <object id="8" name="solid" x="579" y="167.5" width="200" height="11"/>
+  <object id="8" name="solid" x="645" y="168.5" width="79" height="11"/>
   <object id="12" name="solid" x="782" y="121.5" width="316" height="65"/>
   <object id="13" name="solid" x="1101" y="263.5" width="239" height="65"/>
   <object id="14" name="solid" x="1201" y="463.5" width="316" height="65"/>
@@ -124,8 +124,22 @@
   <object id="45" name="coin" x="1618" y="319.5" width="20" height="19"/>
   <object id="46" name="coin" x="1858" y="419.5" width="20" height="19"/>
   <object id="47" name="coin" x="1959" y="381.5" width="20" height="19"/>
-  <object id="48" name="coin" x="2060" y="438.5" width="20" height="19"/>
+  <object id="48" name="coin" x="2005.67" y="452.833" width="20" height="19"/>
   <object id="49" name="die" x="0" y="689" width="2200" height="9"/>
+  <object id="50" name="easyEnemy" x="466.5" y="379" width="27" height="30"/>
+  <object id="51" name="solid" x="627.5" y="163.5" width="17" height="14"/>
+  <object id="52" name="solid" x="609.5" y="156" width="17" height="14"/>
+  <object id="53" name="solid" x="597.5" y="145" width="17" height="14"/>
+  <object id="54" name="solid" x="583.5" y="134" width="17" height="14"/>
+  <object id="55" name="solid" x="571.5" y="122" width="17" height="14"/>
+  <object id="56" name="solid" x="715.5" y="165" width="17" height="14"/>
+  <object id="57" name="solid" x="730.5" y="157" width="17" height="14"/>
+  <object id="58" name="solid" x="749.5" y="149" width="17" height="14"/>
+  <object id="59" name="solid" x="761.5" y="136" width="17" height="14"/>
+  <object id="60" name="solid" x="777.5" y="129" width="17" height="14"/>
+  <object id="61" name="solid" x="782" y="121.5" width="316" height="65"/>
+  <object id="62" name="win" x="2138" y="492.833" width="55" height="19"/>
+  <object id="63" name="easyEnemy" x="1003.5" y="92" width="27" height="30"/>
  </objectgroup>
  <layer name="Слой тайлов 2" width="110" height="35">
   <data encoding="csv">

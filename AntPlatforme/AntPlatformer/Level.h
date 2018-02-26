@@ -13,7 +13,10 @@ struct ObjectT
 	int GetPropertyInt(std::string name);
 	float GetPropertyFloat(std::string name);
 	std::string GetPropertyString(std::string name);
-
+	void hhh(int jj)
+	{
+		rect.top = jj;
+	}
 	std::string name;
 	std::string type;
 	sf::Rect<float> rect;
@@ -32,8 +35,8 @@ class Level
 {
 public:
 	bool LoadFromFile(std::string filename);
-	ObjectT GetObjectT(std::string name);
-	std::vector<ObjectT> GetObjectTs(std::string name);
+	ObjectT* GetObjectT(std::string name);
+	std::vector<ObjectT*> GetObjectTs(std::string name);
 	std::vector<ObjectT>* GetAllObjectTs();
 	void Draw(sf::RenderWindow &window);
 	sf::Vector2i GetTileSize();
