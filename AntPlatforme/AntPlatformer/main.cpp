@@ -16,6 +16,7 @@ void gameRun(sf::RenderWindow& window)
 {
 	if (startGame(window))
 	{
+		window.clear();
 		gameRun(window);
 	}
 }

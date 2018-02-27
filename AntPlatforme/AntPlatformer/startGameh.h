@@ -22,7 +22,8 @@ bool startGame(sf::RenderWindow& window)
 	}
 	else
 	{
-		///
+		level.LoadFromFile("mapN.tmx");
+		//bool flag = true;
 	}
 
 
@@ -210,8 +211,13 @@ bool startGame(sf::RenderWindow& window)
 					numberOfLevel = 2;
 					window.draw(diedText);
 					window.draw(exitText);
-					window.display();
-					player1.setHealth();
+					if (flag == true)
+					{
+						flag = false;
+						window.display();
+						player1.setHealth();
+					}
+					
 				}
 				else
 				{
