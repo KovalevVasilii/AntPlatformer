@@ -10,5 +10,6 @@ Person::~Person() {}
 void Person::hit(Weapon& weapon)
 {
 	health -= weapon.getDamage();
+	shock=80;
 }
 

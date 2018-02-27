@@ -7,6 +7,7 @@
 #include "enemy.h"
 #include "view.h"
 #include <memory>
+#include "Ability.h"
 
 int main()
 {
@@ -24,26 +25,49 @@ int main()
 	easyEnemyImage.loadFromFile("images/enemy_sprite.png");
 	easyEnemyImage.createMaskFromColor(sf::Color(255, 255, 255));
 
-	ObjectT player = level.GetObjectT("player");
-	ObjectT easyEnemyObject = level.GetObjectT("easyEnemy");
+	sf::Image weaponIm;
 
-	
-	Size playerSize(player.rect.left, player.rect.top, 49, 50);
-	Size enemySize(easyEnemyObject.rect.left, easyEnemyObject.rect.top, 50, 45);
-	//std::shared_ptr<Player> player1 = std::make_shared<Player>(heroImage, "Player", playerSize, 100, view, &level, 0.5);
-	Player player1(heroImage, "Player", playerSize, 100, view, &level, 0.5);
-	Enemy easyEnemy(easyEnemyImage, "easyEnemy",enemySize,100, &level,150,0.3);
-	std::list<Enemy*> enemyList;
-	enemyList.push_back(&easyEnemy);
+	ObjectT* player = level.GetObjectT("player");
+	std::vector<ObjectT*> easyEnemyObject = level.GetObjectTs("easyEnemy");
+	std::vector<Enemy> enemyList;
+
+	ObjectT* ob = level.GetObjectT("easyEnemy");
+	Size enemySize(ob->rect.left, ob->rect.top, 50, 45);
+	Enemy obb(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob);;
+
+	Size playerSize(player->rect.left, player->rect.top, 49, 50);
+	for (auto it :easyEnemyObject)
+	{
+		enemyList.push_back(obb);
+	}
+
+	int i = 0;
+	for (auto it : easyEnemyObject)
+	{
+		Size enemySize(it->rect.left, it->rect.top, 50, 45);
+		enemyList[i].size = enemySize;
+			i++;
+	}
+
+	Player player1(&heroImage, "Player", playerSize, 100, view, 10, &level, 0.5, player, &weaponIm);
+
 	sf::Texture coinT;
 	coinT.loadFromFile("coin.png");
+
 	
+
 	sf::Font textF;
 	textF.loadFromFile("lobster.ttf");
 	sf::Text coinText;
 	coinText.setFont(textF);
 	coinText.setCharacterSize(20);
 	coinText.setFillColor(sf::Color::Blue);
+
+	sf::Text information;
+	information.setFont(textF);
+	information.setCharacterSize(20);
+	information.setFillColor(sf::Color::Blue);
+
 	//coinText.setPosition(window.getSize().x - 150,40);
 	sf::Text diedText("You died", textF, 90);
 	diedText.setFillColor(sf::Color::Red);
@@ -54,6 +78,23 @@ int main()
 	healthText.setCharacterSize(20);
 	healthText.setFillColor(sf::Color::Blue);
 	sf::Clock clock;
+
+
+	sf::Texture abilityT;
+	abilityT.loadFromFile("ability.png");
+	std::vector<Ability*> abilities;
+	std::vector<ObjectT*> abilitiesObj = level.GetObjectTs("ability");
+
+	for (auto it : abilitiesObj)
+	{
+
+		
+		abilities.push_back(new Ability(abilityT, it->rect.left, it->rect.top));
+		//std::cout << ability.getRect().left <<" : "<< ability.getRect().top << std::endl;
+		//std::cout << ability.to_String() << std::endl;
+	}
+
+
 	try {
 		while (window.isOpen())
 		{
@@ -71,31 +112,78 @@ int main()
 			}
 			if (player1.isAlive())
 			{
-				player1.update(time,enemyList);
-				easyEnemy.update(time,player1);
+				player1.update(time,enemyList,abilities);
+				for (auto easyEnemy =enemyList.begin(); easyEnemy!=enemyList.end(); easyEnemy++)
+				{
+					easyEnemy->update(time, player1);
+				}
 				window.setView(view);
 				window.clear(sf::Color::White);
 				std::vector<sf::Sprite> coins;
-				std::vector<ObjectT> coinsObj = level.GetObjectTs("coin");
+				std::vector<ObjectT*> coinsObj = level.GetObjectTs("coin");
 				for (auto it = coinsObj.begin(); it != coinsObj.end(); it++)
 				{
 					sf::Sprite coin;
 					coin.setTexture(coinT);
-					coin.setPosition(it->rect.left, it->rect.top);
+					coin.setPosition((*it)->rect.left, (*it)->rect.top);
 					coins.push_back(coin);
 					window.draw(coin);
 				}
+				//std::cout << abilities.size() << std::endl;
+				for (int i = 0; i<abilities.size(); i++)
+				{
+					if (abilities[i]->flagExist)
+					{
+						//abilities[i]->draw(&window);
+						//easyEnemy.~Enemy();
+						sf::Sprite AB;
+						AB.setTexture(abilityT);
+						AB.setPosition(abilities[i]->getRect().left, abilities[i]->getRect().top);
+						AB.setScale(0.5,0.5);
+						window.draw(AB);
+						//std::cout << abilities[i]->getRect().left << " : " << abilities[i]->getRect().top << std::endl;
+						//window.draw(abilities[i]->getSprite());
+
+					}
+					else
+					{
+						std::swap(abilities[i], abilities[abilities.size() - 1]);
+						abilities.pop_back();
+						i--;
+					}
+				}
+				if (time > 5)
+				{
+					information.setString("");
+				}
+				else
+				{
+					information.setString(player1.getInformation());
+				}
+				
 				coinText.setString("Coins: " + std::to_string(player1.getCoin()));
 				coinText.setPosition(view.getCenter().x+300, view.getCenter().y-350);
 				healthText.setString("Health: " + std::to_string(player1.getHealth()));
 				healthText.setPosition(view.getCenter().x + 300, view.getCenter().y - 300);
+				information.setPosition(view.getCenter().x + 300, view.getCenter().y - 250);
+				window.draw(information);
 				level.Draw(window);
-				if (easyEnemy.isAlive())
+				for (int i=0;i<enemyList.size();i++)
 				{
-					window.draw(easyEnemy.sprite);
-					//easyEnemy.~Enemy();
+					if (enemyList[i].isAlive())
+					{
+						enemyList[i].draw(&window);
+						//easyEnemy.~Enemy();
+					}
+					else
+					{
+						std::swap(enemyList[i], enemyList[enemyList.size() - 1]);
+						enemyList.pop_back();
+						i--;
+					}
 				}
-				window.draw(player1.sprite);
+				//window.draw(player1.sprite);
+				player1.draw(&window);
 				window.draw(coinText);
 				window.draw(healthText);
 				if (coins.empty())
@@ -121,7 +209,7 @@ int main()
 				}
 				else
 				{
-					window.display();
+ 					window.display();
 				}
 				
 			}

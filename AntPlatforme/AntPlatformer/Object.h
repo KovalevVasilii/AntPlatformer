@@ -2,19 +2,20 @@
 #define OBJECT_H
 #include <SFML/Graphics.hpp>
 #include "constants.h"
-
 #include "size.h"
+
 class Object
 {
 public:
 	Object();
 	~Object();
-	Object(sf::Image image, Size size)
-		: size(size), image(&image) 
+	Object(sf::Image* image, Size size)
+		: size(size), image(image)
 	{
-		texture.loadFromImage(image);
+		texture.loadFromImage(*image);
 		sprite.setTexture(texture);
 		sprite.setOrigin(size.w / 2, size.h / 2);
+		sprite.setPosition(size.x, size.y);
 	}
 	Size getSize() const { return size; }
 	sf::FloatRect getRect() { return sf::FloatRect(size.x, size.y, size.w, size.h); }
@@ -23,7 +24,6 @@ public:
 	sf::Texture texture;
 	sf::Sprite sprite;
 	Size size;
-
 };
 #endif OBJECT_H
 

@@ -9,7 +9,7 @@ void Enemy::checkCollisionWithMap(float Dx, float Dy)
 			if (it->name == "solid")
 			{
 				if (Dy>0) { size.y = it->rect.top - size.h;  dy = 0; onGround = true; }
-				if (Dy<0) { size.y = it->rect.top + it->rect.height;   dy = 0; }
+				if (Dy<0) {  size.y = it->rect.top + it->rect.height;   dy = 0; }
 				if (Dx>0) { size.x = it->rect.left - size.w; }
 				if (Dx<0) { size.x = it->rect.left + it->rect.width; }
 			}
@@ -18,9 +18,15 @@ void Enemy::checkCollisionWithMap(float Dx, float Dy)
 				life = false;
 			}
 		}
+
 }
 void Enemy::update(float time,Player& player)
 {
+	if (health <= 0)
+	{
+		life = false;
+	}
+	object=lvl->GetObjectT("easyEnemy");
 	Size p = player.getSize();
 	sprite.setPosition(size.x + size.w / 2, size.y + size.h / 2);
 	if (way(p) <= radOfView)
@@ -32,7 +38,6 @@ void Enemy::update(float time,Player& player)
 			sprite.setTextureRect(sf::IntRect(59 * int(CurrentFrame), 62, 59, 62));
 			dx = -speed;
 			lDX = dx;
-			//std::cout << dx << std::endl;
 		}
 		else if(player.getSize().x - getSize().x >0)
 		{
@@ -41,7 +46,6 @@ void Enemy::update(float time,Player& player)
 			sprite.setTextureRect(sf::IntRect(59 * int(CurrentFrame), 0, 59, 58));
 			dx = speed;
 			lDX = dx;
-			//std::cout << dx << std::endl;
 		}
 		}
 	else
@@ -50,26 +54,23 @@ void Enemy::update(float time,Player& player)
 	}
 	size.x += dx * time;
 	checkCollisionWithMap(dx, 0);
+	
 	size.y += dy * time;
+	shock--;
 	checkCollisionWithMap(0, dy);
 	dy = dy + 0.0015*time;
-		/*state = player->getState();
-		
-		switch (state)
+	if (shock >= 0)
+	{
+		if (player.getSize().x - getSize().x > 0)
 		{
-		case right:
-			//dx = speed;
-			sprite.setTextureRect(sf::IntRect(300, 12, 50, 67));
-			break;
-		case left:
-			//dx = -speed;
-			sprite.setTextureRect(sf::IntRect(55 * CurrentFrame, 10, 50, 65));
-			break;
-
-		}*/
-	
-		if (health <= 0) { life = false; }
-	
+			sprite.setTextureRect(sf::IntRect(663, 467, 45, 83));
+		}
+		else
+		{
+			sprite.setTextureRect(sf::IntRect(708, 467, 45, 83));
+		}
+	}
+		
 }
 int Enemy::way(Size& hero)
 {
@@ -79,4 +80,10 @@ int Enemy::way(Size& hero)
 
 Enemy::~Enemy()
 {
+}
+
+void Enemy::draw(sf::RenderWindow* window)
+{
+	window->draw(sprite);
+	//window->display();
 }
