@@ -22,14 +22,14 @@
 			}
 
 			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && (onGround)) {
-				state = jump; dy = -0.6; onGround = false;
+				state = jump; dy = -0.6+abilitiesCoef; onGround = false;
 
 			}
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
 				state = down;
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 				for (auto weapon : weapons)
 				{
 					if (!weapon->getTypeOfWeapon() && pause <= 0)
@@ -73,16 +73,13 @@
 					health = 0;
 					life = false;
 				}
-				else if (it->name == "win")
-				{
-					///
-				}
 			}
 			it++;
 		}
 	}
-	void Player::update(float time, std::vector<Enemy>& enemyList)
+	void Player::update(float time, std::vector<Enemy>& enemyList,std::vector<Ability*>&abilitiesList)
 	{
+		//std::cout << getRect().left << getRect().top << std::endl;
 		updateWeapon(time, enemyList);
 		for (auto it = enemyList.begin(); it != enemyList.end(); it++)
 		{
@@ -105,6 +102,35 @@
 				//if (dx < 0) { size.x = size.x; }
 				//if (dx > 0) { size.x = getSize().x - size.w;}
 		}
+		for (auto it : abilitiesList)
+		{
+			if (it->getRect().intersects(getRect())&&it->flagExist==true)
+			{
+				std::cout << it->to_String() << std::endl;
+				information = it->to_String();
+				switch (it->getTypeOfAbility())
+				{
+				case 0:
+					health += 25;
+					break;
+				case 1:
+					speed += 0.05;
+					
+					break;
+				case 2:
+					for (int i = 0; i < 10; i++)
+					{
+						addBullet();
+					}
+					break;
+				case 3:
+					abilitiesCoef -= 0.05;
+					break;
+				}
+				it->flagExist = false;
+			}
+		}
+		
 			control(time);
 			switch (state)
 			{

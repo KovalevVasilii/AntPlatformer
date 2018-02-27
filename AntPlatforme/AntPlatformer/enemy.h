@@ -4,6 +4,7 @@ class Player;
 #include "Person.h"
 //#include "Player.h"
 #include "Level.h"
+#include <SFML/Audio.hpp>
 class Enemy :
 	public Person
 {
@@ -14,6 +15,9 @@ public:
 		state = idle; 
 		CurrentFrame = 0;
 		sprite.setTextureRect(sf::IntRect(55*CurrentFrame, 10, 50,65));
+		hitM = new sf::Music;
+		hitM->openFromFile("hitM.wav");
+		
 	}
 	
 	float getlDX() { return lDX; }
@@ -27,6 +31,6 @@ private:
 	float speed;
 	float CurrentFrame;
 	float lDX;
-	
+	sf::Music* hitM;
 };
 #endif ENEMY_H
