@@ -40,6 +40,7 @@ public:
 	void addBullet(){ weapons.push_back(new Weapon(weaponIm, Size(0, 0, weaponIm->getSize().x, weaponIm->getSize().y), 0.1, 10, false)); }
 	~Player() {}
 	std::string getInformation() { return information; }
+	void setHealth() { health = 100; }
 private:
 	std::string information;
 	float abilitiesCoef;
