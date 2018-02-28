@@ -12,7 +12,11 @@
 #include "menu.h"
 bool startGame(sf::RenderWindow& window)
 {
-	
+	sf::SoundBuffer buffer;
+	buffer.loadFromFile("music/weapon.wav");
+	sf::Sound sound;
+	sound.setBuffer(buffer);
+
 	static int numberOfLevel = 1;
 	bool flag = true;
 	Level level;
@@ -22,7 +26,7 @@ bool startGame(sf::RenderWindow& window)
 	}
 	else
 	{
-		level.LoadFromFile("mapN.tmx");
+		level.LoadFromFile("map2.tmx");
 		//bool flag = true;
 	}
 
@@ -42,9 +46,11 @@ bool startGame(sf::RenderWindow& window)
 	std::vector<ObjectT*> easyEnemyObject = level.GetObjectTs("easyEnemy");
 	std::vector<Enemy> enemyList;
 
+	
+
 	ObjectT* ob = level.GetObjectT("easyEnemy");
 	Size enemySize(ob->rect.left, ob->rect.top, 50, 45);
-	Enemy obb(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob);;
+	Enemy obb(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob,&sound);;
 
 	Size playerSize(player->rect.left, player->rect.top, 49, 50);
 	for (auto it : easyEnemyObject)
@@ -60,10 +66,11 @@ bool startGame(sf::RenderWindow& window)
 		i++;
 	}
 
-	Player player1(&heroImage, "Player", playerSize, 100, view, 10, &level, 0.5, player, &weaponIm);
+	Player player1(&heroImage, "Player", playerSize, 100, view, 30,  &level, 0.5, player, &weaponIm);
 
 	sf::Texture coinT;
-	coinT.loadFromFile("coin.png");
+	coinT.loadFromFile("images/coin.png");
+	
 
 
 
@@ -101,11 +108,11 @@ bool startGame(sf::RenderWindow& window)
 
 
 		abilities.push_back(new Ability(abilityT, it->rect.left, it->rect.top));
-		//std::cout << ability.getRect().left <<" : "<< ability.getRect().top << std::endl;
-		//std::cout << ability.to_String() << std::endl;
+		//std::cout << it->getRect().left <<" : "<< it->getRect().top << std::endl;
+		//std::cout << it->to_String() << std::endl;
 	}
 
-
+	float CurrentFrame = 0;
 	try {
 		while (window.isOpen())
 		{
@@ -131,13 +138,17 @@ bool startGame(sf::RenderWindow& window)
 					easyEnemy->update(time, player1);
 				}
 				window.setView(view);
-				window.clear(sf::Color::White);
+				window.clear(sf::Color(65, 170, 255));
 				std::vector<sf::Sprite> coins;
 				std::vector<ObjectT*> coinsObj = level.GetObjectTs("coin");
+				CurrentFrame += 0.005*time;
+				if (CurrentFrame > 10) CurrentFrame -= 10;
 				for (auto it = coinsObj.begin(); it != coinsObj.end(); it++)
 				{
 					sf::Sprite coin;
 					coin.setTexture(coinT);
+					coin.setTextureRect(sf::IntRect(100 * int(CurrentFrame), 0, 100, 100));
+					coin.setScale(0.3, 0.3);
 					coin.setPosition((*it)->rect.left, (*it)->rect.top);
 					coins.push_back(coin);
 					window.draw(coin);
@@ -165,21 +176,15 @@ bool startGame(sf::RenderWindow& window)
 						i--;
 					}
 				}
-				if (time > 5)
-				{
-					information.setString("");
-				}
-				else
-				{
-					information.setString(player1.getInformation());
-				}
+				information.setString(player1.getInformation());
+				
 
 				coinText.setString("Coins: " + std::to_string(player1.getCoin()));
 				coinText.setPosition(view.getCenter().x + 300, view.getCenter().y - 350);
 				healthText.setString("Health: " + std::to_string(player1.getHealth()));
 				healthText.setPosition(view.getCenter().x + 300, view.getCenter().y - 325);
 				information.setPosition(view.getCenter().x + 300, view.getCenter().y - 300);
-				window.draw(information);
+				
 				level.Draw(window);
 				for (int i = 0; i<enemyList.size(); i++)
 				{
@@ -199,6 +204,7 @@ bool startGame(sf::RenderWindow& window)
 				player1.draw(&window);
 				window.draw(coinText);
 				window.draw(healthText);
+				window.draw(information);
 				if (coins.empty())
 				{
 					//std::cout << "You win" << std::endl;

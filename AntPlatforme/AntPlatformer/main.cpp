@@ -10,6 +10,7 @@
 #include "Ability.h"
 #include "startGameh.h"
 #include "menu.h"
+#include <SFML/Audio.hpp>
 
 
 void gameRun(sf::RenderWindow& window)
@@ -22,10 +23,16 @@ void gameRun(sf::RenderWindow& window)
 }
 int main()
 {
+	sf::Music life;
+	life.openFromFile("life.wav");
+	life.setLoop(true);
+	life.play();
+	
 	sf::RenderWindow window(sf::VideoMode(1600, 700), "Antplatformer");
 	menu(window);
 	if (window.isOpen())
 	{
 		gameRun(window);
 	}
+	life.stop();
 }

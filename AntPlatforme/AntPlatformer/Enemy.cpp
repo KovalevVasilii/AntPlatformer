@@ -61,6 +61,7 @@ void Enemy::update(float time,Player& player)
 	dy = dy + 0.0015*time;
 	if (shock >= 0)
 	{
+		sound->play();
 		if (player.getSize().x - getSize().x > 0)
 		{
 			sprite.setTextureRect(sf::IntRect(663, 467, 45, 83));
@@ -70,6 +71,7 @@ void Enemy::update(float time,Player& player)
 			sprite.setTextureRect(sf::IntRect(708, 467, 45, 83));
 		}
 	}
+	
 		
 }
 int Enemy::way(Size& hero)

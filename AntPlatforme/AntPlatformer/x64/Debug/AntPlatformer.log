@@ -8,11 +8,13 @@ c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(20)
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(23): warning C4244: return: преобразование "float" в "int", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(24): warning C4244: =: преобразование "int" в "float", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\person.h(25): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.h(16): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\enemy.h(17): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\ability.h(14): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.h(29): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
 c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\player.h(40): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(47): warning C4305: аргумент: усечение из "double" в "float"
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(112): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(249): warning C4715: startGame: значение возвращается не при всех путях выполнения
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(53): warning C4305: аргумент: усечение из "double" в "float"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(119): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(144): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(151): warning C4305: аргумент: усечение из "double" в "float"
+c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\startgameh.h(255): warning C4715: startGame: значение возвращается не при всех путях выполнения
   AntPlatformer.vcxproj -> C:\Users\user\source\repos\AntPlatformer\AntPlatforme\x64\Debug\AntPlatformer.exe
