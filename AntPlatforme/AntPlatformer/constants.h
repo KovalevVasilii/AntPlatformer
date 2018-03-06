@@ -2,10 +2,12 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 #include "SFML\Graphics.hpp"
-enum PersonType
+enum ObjectType
 {
 	player = 0,
 	enemy,
+	coin,
+	ability,
 	typesNumber
 };
 enum  AbilityType

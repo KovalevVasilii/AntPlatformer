@@ -22,7 +22,7 @@ public:
 		lastTime = 0;
 		sprite.setTextureRect(sf::IntRect(49 * int(CurrentFrame), 0, 49, 50));
 		//std::cout << this->speed << std::endl;
-		weaponIm->loadFromFile("weapon.png");
+		weaponIm->loadFromFile("images/weapon.png");
 		this->weaponIm = weaponIm;
 		for (int i = 0; i <=countWeapons; i++)
 		{
@@ -34,7 +34,7 @@ public:
 	int getCoin() const;
 	sf::Sprite& getSprite() { return sprite; }
 	void setPlayerCoordinateForView(float x, float y, sf::View& view);
-	void update(float time, std::vector<Enemy>& enemyList, std::vector<Ability*>&abilitiesList);
+	void update(float time, std::vector<std::shared_ptr<Enemy>>& enemyList, std::vector<std::shared_ptr<Ability>>&abilitiesList);
 	StatePerson getState() const { return state; }
 	void draw(sf::RenderWindow* window);
 	void addBullet(){ weapons.push_back(new Weapon(weaponIm, Size(0, 0, weaponIm->getSize().x, weaponIm->getSize().y), 0.1, 10, false)); }
@@ -44,7 +44,7 @@ public:
 private:
 	std::string information;
 	float abilitiesCoef;
-	void updateWeapon(float time, std::vector<Enemy>& enemyList);
+	void updateWeapon(float time, std::vector<std::shared_ptr<Enemy>>& enemyList);
 	void checkCollisionWithMap(float Dx, float Dy, float time);
 	void control(float time);
 	float CurrentFrame;

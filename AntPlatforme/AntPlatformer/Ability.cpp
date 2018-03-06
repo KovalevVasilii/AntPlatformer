@@ -31,7 +31,7 @@ Ability::~Ability()
 Ability::Ability(sf::Texture text, float x, float y)
 {
 	flagExist = true;
-	texture.loadFromFile("coin.png");
+	//texture.loadFromFile("images/coin.png");
 		std::random_device rd;
 		std::mt19937 gen(rd());
 		std::uniform_int_distribution<> dist(0, 3);

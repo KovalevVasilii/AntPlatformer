@@ -77,26 +77,26 @@
 			it++;
 		}
 	}
-	void Player::update(float time, std::vector<Enemy>& enemyList,std::vector<Ability*>&abilitiesList)
+	void Player::update(float time, std::vector<std::shared_ptr<Enemy>>& enemyList,std::vector<std::shared_ptr<Ability>>&abilitiesList)
 	{
 		//std::cout << getRect().left << getRect().top << std::endl;
 		updateWeapon(time, enemyList);
 		for (auto it = enemyList.begin(); it != enemyList.end(); it++)
 		{
-			if (it->getRect().intersects(getRect()))
+			if ((*it)->getRect().intersects(getRect()))
 			{
 				health-=0.05;
 				//std::cout << it->getDx() << std::endl;
-					if (it->getlDX() > 0)
+					if ((*it)->getlDX() > 0)
 					{
-						it->setSizeX(size.x - it->getSize().w);
-						it->setDx(0);
+						(*it)->setSizeX(size.x - (*it)->getSize().w);
+						(*it)->setDx(0);
 						//std::cout << "KEK" << std::endl;
 					}
-					if (it->getlDX() < 0)
+					if ((*it)->getlDX() < 0)
 					{
-						it->setSizeX(size.x + it->getSize().w);
-						it->setDx(0);
+						(*it)->setSizeX(size.x + (*it)->getSize().w);
+						(*it)->setDx(0);
 					}
 				}
 				//if (dx < 0) { size.x = size.x; }
@@ -173,7 +173,7 @@
 		return coin;
 	}
 
-	void Player::updateWeapon(float time, std::vector<Enemy>& enemyList)
+	void Player::updateWeapon(float time, std::vector<std::shared_ptr<Enemy>>& enemyList)
 	{
 		if (weapons.size() > 0)
 		{
@@ -181,9 +181,9 @@
 			{
 				for (int i = 0; i < weapons.size(); i++)
 				{
-					if (weapons[i]->getTypeOfWeapon() && weapons[i]->getRect().intersects((it)->getRect()))
+					if (weapons[i]->getTypeOfWeapon() && weapons[i]->getRect().intersects((*it)->getRect()))
 						{
-							(it)->hit(*weapons[i]);
+							(*it)->hit(*weapons[i]);
 							std::swap(weapons[i], weapons[weapons.size() - 1]);
 							weapons.pop_back();
 					}

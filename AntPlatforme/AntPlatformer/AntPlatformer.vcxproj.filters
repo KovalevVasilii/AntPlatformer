@@ -51,6 +51,9 @@
     <ClCompile Include="Ability.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Object.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="menu.h">
       <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

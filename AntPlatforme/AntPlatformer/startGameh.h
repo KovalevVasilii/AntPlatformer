@@ -22,11 +22,11 @@ bool startGame(sf::RenderWindow& window)
 	Level level;
 	if (numberOfLevel == 1)
 	{
-		level.LoadFromFile("map.tmx");
+		level.LoadFromFile("maps/map.tmx");
 	}
 	else
 	{
-		level.LoadFromFile("map2.tmx");
+		level.LoadFromFile("maps/map2.tmx");
 		//bool flag = true;
 	}
 
@@ -44,17 +44,18 @@ bool startGame(sf::RenderWindow& window)
 
 	ObjectT* player = level.GetObjectT("player");
 	std::vector<ObjectT*> easyEnemyObject = level.GetObjectTs("easyEnemy");
-	std::vector<Enemy> enemyList;
+	std::vector<std::shared_ptr<Enemy>> enemyList;
 
 	
 
 	ObjectT* ob = level.GetObjectT("easyEnemy");
 	Size enemySize(ob->rect.left, ob->rect.top, 50, 45);
-	Enemy obb(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob,&sound);;
+	
 
 	Size playerSize(player->rect.left, player->rect.top, 49, 50);
 	for (auto it : easyEnemyObject)
 	{
+		std::shared_ptr<Enemy> obb(new Enemy(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob, &sound));
 		enemyList.push_back(obb);
 	}
 
@@ -62,11 +63,11 @@ bool startGame(sf::RenderWindow& window)
 	for (auto it : easyEnemyObject)
 	{
 		Size enemySize(it->rect.left, it->rect.top, 50, 45);
-		enemyList[i].size = enemySize;
+		enemyList[i]->size = enemySize;
 		i++;
 	}
-
-	Player player1(&heroImage, "Player", playerSize, 100, view, 30,  &level, 0.5, player, &weaponIm);
+	std::shared_ptr<Player> player1(new Player(&heroImage, "Player", playerSize, 100, view, 30, &level, 0.5, player, &weaponIm));
+	//Player player1(&heroImage, "Player", playerSize, 100, view, 30,  &level, 0.5, player, &weaponIm);
 
 	sf::Texture coinT;
 	coinT.loadFromFile("images/coin.png");
@@ -75,7 +76,7 @@ bool startGame(sf::RenderWindow& window)
 
 
 	sf::Font textF;
-	textF.loadFromFile("lobster.ttf");
+	textF.loadFromFile("fonts/lobster.ttf");
 	sf::Text coinText;
 	coinText.setFont(textF);
 	coinText.setCharacterSize(20);
@@ -99,15 +100,15 @@ bool startGame(sf::RenderWindow& window)
 
 
 	sf::Texture abilityT;
-	abilityT.loadFromFile("ability.png");
-	std::vector<Ability*> abilities;
+	abilityT.loadFromFile("images/ability.png");
+	std::vector<std::shared_ptr<Ability>> abilities;
 	std::vector<ObjectT*> abilitiesObj = level.GetObjectTs("ability");
 
 	for (auto it : abilitiesObj)
 	{
 
-
-		abilities.push_back(new Ability(abilityT, it->rect.left, it->rect.top));
+		std::shared_ptr<Ability>ability(new Ability(abilityT, it->rect.left, it->rect.top));
+		abilities.push_back(ability);
 		//std::cout << it->getRect().left <<" : "<< it->getRect().top << std::endl;
 		//std::cout << it->to_String() << std::endl;
 	}
@@ -130,12 +131,12 @@ bool startGame(sf::RenderWindow& window)
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)) { return true; }
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) { return false; }
-			if (player1.isAlive())
+			if (player1->isAlive())
 			{
-				player1.update(time, enemyList, abilities);
+				player1->update(time, enemyList, abilities);
 				for (auto easyEnemy = enemyList.begin(); easyEnemy != enemyList.end(); easyEnemy++)
 				{
-					easyEnemy->update(time, player1);
+					(*easyEnemy)->update(time, *player1);
 				}
 				window.setView(view);
 				window.clear(sf::Color(65, 170, 255));
@@ -176,21 +177,21 @@ bool startGame(sf::RenderWindow& window)
 						i--;
 					}
 				}
-				information.setString(player1.getInformation());
+				information.setString(player1->getInformation());
 				
 
-				coinText.setString("Coins: " + std::to_string(player1.getCoin()));
+				coinText.setString("Coins: " + std::to_string(player1->getCoin()));
 				coinText.setPosition(view.getCenter().x + 300, view.getCenter().y - 350);
-				healthText.setString("Health: " + std::to_string(player1.getHealth()));
+				healthText.setString("Health: " + std::to_string(player1->getHealth()));
 				healthText.setPosition(view.getCenter().x + 300, view.getCenter().y - 325);
 				information.setPosition(view.getCenter().x + 300, view.getCenter().y - 300);
 				
 				level.Draw(window);
 				for (int i = 0; i<enemyList.size(); i++)
 				{
-					if (enemyList[i].isAlive())
+					if (enemyList[i]->isAlive())
 					{
-						enemyList[i].draw(&window);
+						enemyList[i]->draw(&window);
 						//easyEnemy.~Enemy();
 					}
 					else
@@ -201,7 +202,7 @@ bool startGame(sf::RenderWindow& window)
 					}
 				}
 				//window.draw(player1.sprite);
-				player1.draw(&window);
+				player1->draw(&window);
 				window.draw(coinText);
 				window.draw(healthText);
 				window.draw(information);
@@ -221,7 +222,7 @@ bool startGame(sf::RenderWindow& window)
 					{
 						flag = false;
 						window.display();
-						player1.setHealth();
+						player1->setHealth();
 					}
 					
 				}

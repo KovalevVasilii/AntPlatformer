@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="Ability.cpp" />
     <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Ability.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="enemy.h" />
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="Object.h" />
