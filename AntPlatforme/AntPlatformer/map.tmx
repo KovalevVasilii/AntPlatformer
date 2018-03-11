@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="110" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="64">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="110" height="35" tilewidth="20" tileheight="20" infinite="0" nextobjectid="68">
  <tileset firstgid="1" name="generic_platformer_tiles" tilewidth="20" tileheight="20" tilecount="1938" columns="51">
   <image source="generic_platformer_tiles.png" width="1024" height="768"/>
  </tileset>
@@ -140,6 +140,8 @@
   <object id="61" name="solid" x="782" y="121.5" width="316" height="65"/>
   <object id="62" name="win" x="2138" y="492.833" width="55" height="19"/>
   <object id="63" name="easyEnemy" x="1003.5" y="92" width="27" height="30"/>
+  <object id="66" name="ability" x="633" y="38" width="35" height="34"/>
+  <object id="67" name="ability" x="1430" y="394" width="35" height="34"/>
  </objectgroup>
  <layer name="Слой тайлов 2" width="110" height="35">
   <data encoding="csv">

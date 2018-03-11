@@ -3,6 +3,12 @@
 #include "TinyXML\tinyxml.h"
 #include <vector>
 
+Level::Level()
+{
+	width = 0;
+	height = 0;
+}
+
 int ObjectT::GetPropertyInt(std::string name)
 {
 	return atoi(properties[name].c_str());
@@ -264,6 +270,7 @@ ObjectT* Level::GetObjectT(std::string name)
 	for (int i = 0; i < objectTs.size(); i++)
 		if (objectTs[i].name == name)
 			return &objectTs[i];
+	return nullptr;
 }
 
 std::vector<ObjectT*> Level::GetObjectTs(std::string name)
@@ -294,11 +301,36 @@ sf::Vector2i Level::GetTileSize()
 
 void Level::Draw(sf::RenderWindow &window)
 {
-	for (int layer = 0; layer < layers.size(); layer++)
+	
+
+	if (width==0)
 	{
-		for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
+		for (auto ii : objectTs)
 		{
-			window.draw(layers[layer].tiles[tile]); 
+			if (ii.name == "solid" || ii.name == "plant")
+			{
+				window.draw(ii.sprite);
+			}
 		}
 	}
+	else
+	{
+		for (int layer = 0; layer < layers.size(); layer++)
+		{
+			for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
+			{
+				window.draw(layers[layer].tiles[tile]);
+			}
+		}
+	}
+}
+
+void Level::addSprite(sf::Sprite sprite)
+{
+	sprites.push_back(sprite);
+}
+
+void Level::addObjectT(ObjectT object)
+{
+	objectTs.push_back(object);
 }

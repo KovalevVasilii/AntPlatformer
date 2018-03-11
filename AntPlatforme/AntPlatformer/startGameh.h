@@ -1,4 +1,5 @@
 #pragma once
+#include "Generator.h"
 #include <iostream>
 #include "Level.h"
 #include <sstream>
@@ -13,19 +14,26 @@
 bool startGame(sf::RenderWindow& window)
 {
 	
-	static int numberOfLevel = 2;
+	static int numberOfLevel = 3;
 	bool flag = true;
 	Level level;
+	Generator genLevel(4400, window.getSize().y);
 	if (numberOfLevel == 1)
 	{
 		level.LoadFromFile("map.tmx");
 	}
 	else
+		if (numberOfLevel==2)
 	{
 		level.LoadFromFile("map2.tmx");
 		//bool flag = true;
 	}
-
+		else
+		{
+			level = *genLevel.generate();
+		}
+	sf::Music hitM;
+	hitM.openFromFile("hitM.wav");
 
 
 	sf::Image heroImage;
@@ -41,26 +49,32 @@ bool startGame(sf::RenderWindow& window)
 	ObjectT* player = level.GetObjectT("player");
 	std::vector<ObjectT*> easyEnemyObject = level.GetObjectTs("easyEnemy");
 	std::vector<Enemy> enemyList;
-
+	std::cout << easyEnemyObject.size();
+	
 	
 
-	ObjectT* ob = level.GetObjectT("easyEnemy");
-	Size enemySize(ob->rect.left, ob->rect.top, 50, 45);
-	Enemy obb(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob);;
+	ObjectT* ob = nullptr;
+	ob = level.GetObjectT("easyEnemy");
+	Size enemySize(0, 0, 50, 45);
+	Enemy obb(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob, &hitM);
+	if (ob != nullptr)
+	{
+		
+		for (auto it : easyEnemyObject)
+		{
+			enemyList.push_back(obb);
+		}
+
+		int i = 0;
+		for (auto it : easyEnemyObject)
+		{
+			Size enemySize(it->rect.left, it->rect.top, 50, 45);
+			enemyList[i].size = enemySize;
+			i++;
+		}
+	}
 
 	Size playerSize(player->rect.left, player->rect.top, 49, 50);
-	for (auto it : easyEnemyObject)
-	{
-		enemyList.push_back(obb);
-	}
-
-	int i = 0;
-	for (auto it : easyEnemyObject)
-	{
-		Size enemySize(it->rect.left, it->rect.top, 50, 45);
-		enemyList[i].size = enemySize;
-		i++;
-	}
 
 	Player player1(&heroImage, "Player", playerSize, 100, view, 30,  &level, 0.5, player, &weaponIm);
 
@@ -201,7 +215,7 @@ bool startGame(sf::RenderWindow& window)
 				player1.draw(&window);
 				window.draw(coinText);
 				window.draw(healthText);
-				if (coins.empty())
+				if (coins.size()==1)
 				{
 					//std::cout << "You win" << std::endl;
 					diedText.setString("You win!");

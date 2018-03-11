@@ -9,14 +9,13 @@ class Enemy :
 	public Person
 {
 public:
-	Enemy(sf::Image*image, std::string name, Size size,float health, Level* lvl, float radOfView,float speed, ObjectT* obj) 
-		:radOfView(radOfView),speed(speed),
+	Enemy(sf::Image*image, std::string name, Size size,float health, Level* lvl, float radOfView,float speed, ObjectT* obj, sf::Music* hitM)
+		:radOfView(radOfView),speed(speed), hitM(hitM),
 		Person(image, name, size,health,lvl, obj) {
 		state = idle; 
 		CurrentFrame = 0;
 		sprite.setTextureRect(sf::IntRect(55*CurrentFrame, 10, 50,65));
-		hitM = new sf::Music;
-		hitM->openFromFile("hitM.wav");
+		
 		
 	}
 	

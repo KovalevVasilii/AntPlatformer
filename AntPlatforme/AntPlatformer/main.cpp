@@ -11,7 +11,7 @@
 #include "startGameh.h"
 #include "menu.h"
 #include <SFML/Audio.hpp>
-
+#include "Generator.h"
 
 void gameRun(sf::RenderWindow& window)
 {
@@ -26,12 +26,17 @@ int main()
 	sf::Music life;
 	life.openFromFile("life.wav");
 	life.setLoop(true);
-	life.play();
-	sf::RenderWindow window(sf::VideoMode(1600, 700), "Antplatformer");
+	//life.play();
+	life.setVolume(30);
+	sf::RenderWindow window(sf::VideoMode(1600, 720), "Antplatformer");
+	Generator hh(1600, 720);
+	hh.generate()->Draw(window);
+	window.display();
 	menu(window);
 	if (window.isOpen())
 	{
 		gameRun(window);
 	}
-	life.stop();
+	//life.stop();
+	std::cin.get();
 }
