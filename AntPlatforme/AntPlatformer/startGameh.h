@@ -10,6 +10,7 @@
 #include <memory>
 #include "Ability.h"
 #include "menu.h"
+#include "Generator.h"
 bool startGame(sf::RenderWindow& window)
 {
 	sf::SoundBuffer buffer;
@@ -17,18 +18,25 @@ bool startGame(sf::RenderWindow& window)
 	sf::Sound sound;
 	sound.setBuffer(buffer);
 
-	static int numberOfLevel = 1;
+	static int numberOfLevel = 3;
 	bool flag = true;
 	Level level;
-	if (numberOfLevel == 1)
+	Generator genLevel(4400, window.getSize().y);
+	/*if (numberOfLevel == 1)
 	{
 		level.LoadFromFile("maps/map.tmx");
 	}
 	else
-	{
-		level.LoadFromFile("maps/map2.tmx");
-		//bool flag = true;
-	}
+		if (numberOfLevel == 2)
+		{
+			level.LoadFromFile("maps/map2.tmx");
+			//bool flag = true;
+		}
+		else
+		{
+			level = *genLevel.generate();
+		}*/
+	level = *genLevel.generate();
 
 
 
@@ -72,9 +80,6 @@ bool startGame(sf::RenderWindow& window)
 	sf::Texture coinT;
 	coinT.loadFromFile("images/coin.png");
 	
-
-
-
 	sf::Font textF;
 	textF.loadFromFile("fonts/lobster.ttf");
 	sf::Text coinText;
@@ -102,16 +107,43 @@ bool startGame(sf::RenderWindow& window)
 	sf::Texture abilityT;
 	abilityT.loadFromFile("images/ability.png");
 	std::vector<std::shared_ptr<Ability>> abilities;
-	std::vector<ObjectT*> abilitiesObj = level.GetObjectTs("ability");
-
-	for (auto it : abilitiesObj)
+	//std::vector<ObjectT*> abilitiesObj = level.GetObjectTs("abiliti");
+	std::vector<ObjectT*> objects = level.GetObjectTs("ability");
+	std::vector<sf::Sprite> coins;
+	
+	for (auto it : objects)
 	{
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_int_distribution<> dist(0, 2);
+		int a = dist(gen);
+		if(a==0 ||a==1)
+		{
+			sf::Sprite coin;
+			coin.setTexture(coinT);
+			coin.setPosition(it->rect.left, it->rect.top);
+			coins.push_back(coin);
+		}
+		else if(a==2)
+		{
+			
+			std::shared_ptr<Ability>ability(new Ability(abilityT, it->rect.left, it->rect.top));
+			abilities.push_back(ability);
+		}
+		else if(a==56)
+		{
+			std::shared_ptr<Enemy> obb(new Enemy(&easyEnemyImage, "easyEnemy", enemySize, 100, &level, 150, 0.3, ob, &sound));
+			Size enemySize(it->rect.left, it->rect.top, 50, 45);
+			obb->size = enemySize;
+			enemyList.push_back(obb);
 
-		std::shared_ptr<Ability>ability(new Ability(abilityT, it->rect.left, it->rect.top));
-		abilities.push_back(ability);
+		}
+		
 		//std::cout << it->getRect().left <<" : "<< it->getRect().top << std::endl;
 		//std::cout << it->to_String() << std::endl;
 	}
+
+
 
 	float CurrentFrame = 0;
 	try {
@@ -133,26 +165,22 @@ bool startGame(sf::RenderWindow& window)
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) { return false; }
 			if (player1->isAlive())
 			{
-				player1->update(time, enemyList, abilities);
+				player1->update(time, enemyList, abilities,coins);
 				for (auto easyEnemy = enemyList.begin(); easyEnemy != enemyList.end(); easyEnemy++)
 				{
 					(*easyEnemy)->update(time, *player1);
 				}
 				window.setView(view);
 				window.clear(sf::Color(65, 170, 255));
-				std::vector<sf::Sprite> coins;
-				std::vector<ObjectT*> coinsObj = level.GetObjectTs("coin");
+
+				
 				CurrentFrame += 0.005*time;
 				if (CurrentFrame > 10) CurrentFrame -= 10;
-				for (auto it = coinsObj.begin(); it != coinsObj.end(); it++)
+				for (auto it = coins.begin(); it != coins.end(); it++)
 				{
-					sf::Sprite coin;
-					coin.setTexture(coinT);
-					coin.setTextureRect(sf::IntRect(100 * int(CurrentFrame), 0, 100, 100));
-					coin.setScale(0.3, 0.3);
-					coin.setPosition((*it)->rect.left, (*it)->rect.top);
-					coins.push_back(coin);
-					window.draw(coin);
+					it->setTextureRect(sf::IntRect(100 * int(CurrentFrame), 0, 100, 100));
+					it->setScale(0.3, 0.3);
+					window.draw(*it);
 				}
 				//std::cout << abilities.size() << std::endl;
 				for (int i = 0; i<abilities.size(); i++)
@@ -161,11 +189,12 @@ bool startGame(sf::RenderWindow& window)
 					{
 						//abilities[i]->draw(&window);
 						//easyEnemy.~Enemy();
-						sf::Sprite AB;
-						AB.setTexture(abilityT);
-						AB.setPosition(abilities[i]->getRect().left, abilities[i]->getRect().top);
-						AB.setScale(0.5, 0.5);
-						window.draw(AB);
+						
+						sf::Sprite sp;
+						sp.setPosition(abilities[i]->getSprite().getPosition().x, abilities[i]->getSprite().getPosition().y);
+						sp.setTexture(abilityT);
+						sp.setScale(0.5, 0.5);
+						window.draw(sp);
 						//std::cout << abilities[i]->getRect().left << " : " << abilities[i]->getRect().top << std::endl;
 						//window.draw(abilities[i]->getSprite());
 
@@ -202,6 +231,7 @@ bool startGame(sf::RenderWindow& window)
 					}
 				}
 				//window.draw(player1.sprite);
+				level.Draw(window);
 				player1->draw(&window);
 				window.draw(coinText);
 				window.draw(healthText);

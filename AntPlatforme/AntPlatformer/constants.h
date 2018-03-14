@@ -1,13 +1,13 @@
 
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
-#include "SFML\Graphics.hpp"
-enum ObjectType
+
+#include"Platforms.h"
+
+enum PersonType
 {
 	player = 0,
 	enemy,
-	coin,
-	ability,
 	typesNumber
 };
 enum  AbilityType
@@ -26,7 +26,7 @@ enum StatePerson
 	jump,
 	idle
 };
-
+static const Platforms platTexture;
 enum WeaponDirection
 {
 	Wleft,

@@ -1,34 +1,56 @@
-﻿  Factory.cpp
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(19): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.h(12): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(29): error C2039: random_device: не является членом "std"
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\memory(17): note:  см. объявление "std"
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(29): error C2065: random_device: необъявленный идентификатор
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(29): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "rd"
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(29): error C2065: rd: необъявленный идентификатор
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(30): error C2039: mt19937: не является членом "std"
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\memory(17): note:  см. объявление "std"
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(30): error C2065: mt19937: необъявленный идентификатор
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(30): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "gen"
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(30): error C3861: rd: идентификатор не найден
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(30): error C3861: gen: идентификатор не найден
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(31): error C2039: uniform_int_distribution: не является членом "std"
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.12.25827\include\memory(17): note:  см. объявление "std"
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(31): error C2065: uniform_int_distribution: необъявленный идентификатор
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(31): error C2059: синтаксическая ошибка: >
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(32): error C2065: typeOfAbility: необъявленный идентификатор
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(32): error C2065: gen: необъявленный идентификатор
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(32): error C3861: dist: идентификатор не найден
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(40): error C2653: Ability: не является именем класса или пространства имен
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\factory.cpp(42): error C2065: sprite: необъявленный идентификатор
-  Ability.cpp
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(19): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\object.h(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\level.h(18): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-c:\users\user\source\repos\antplatformer\antplatforme\antplatformer\ability.h(14): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+﻿  Player.cpp
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(19): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\level.h(19): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(20): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(23): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(24): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(25): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\enemy.h(17): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\ability.h(14): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.h(29): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.h(40): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(5): warning C4551: в вызове функции отсутствует список аргументов
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(10): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(18): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(25): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(61): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(62): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(63): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(64): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(92): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(98): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(117): warning C4305: +=: усечение из "double" в "float"
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(127): warning C4305: -=: усечение из "double" в "float"
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(158): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(160): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(162): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(165): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(166): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.cpp(167): warning C4244: =: преобразование "double" в "float", возможна потеря данных
   Создание кода...
+  Компиляция...
+  main.cpp
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\level.h(19): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\size.h(6): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(18): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(19): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\object.h(22): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(20): warning C4244: return: преобразование "double" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(23): warning C4244: return: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(24): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\person.h(25): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\enemy.h(17): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\ability.h(14): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.h(29): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\player.h(40): warning C4244: аргумент: преобразование "unsigned int" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\startgameh.h(66): warning C4305: аргумент: усечение из "double" в "float"
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\startgameh.h(135): warning C4305: аргумент: усечение из "double" в "float"
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\startgameh.h(152): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\startgameh.h(177): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\startgameh.h(182): warning C4305: аргумент: усечение из "double" в "float"
+  Создание кода...
+c:\users\user\desktop\antplatformer-master\antplatforme\antplatformer\startgameh.h(286): warning C4715: startGame: значение возвращается не при всех путях выполнения
+  AntPlatformer.vcxproj -> C:\Users\user\Desktop\AntPlatformer-master\AntPlatforme\x64\Debug\AntPlatformer.exe

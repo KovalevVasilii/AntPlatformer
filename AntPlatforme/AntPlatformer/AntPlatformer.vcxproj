@@ -123,11 +123,12 @@
   <ItemGroup>
     <ClCompile Include="Ability.cpp" />
     <ClCompile Include="enemy.cpp" />
-    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="Generator.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Platforms.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TinyXML\tinystr.cpp" />
     <ClCompile Include="TinyXML\tinyxml.cpp" />
@@ -139,11 +140,12 @@
     <ClInclude Include="Ability.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="enemy.h" />
-    <ClInclude Include="Factory.h" />
+    <ClInclude Include="Generator.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Platforms.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="size.h" />
     <ClInclude Include="startGameh.h" />

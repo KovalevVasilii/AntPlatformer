@@ -34,7 +34,7 @@ public:
 	int getCoin() const;
 	sf::Sprite& getSprite() { return sprite; }
 	void setPlayerCoordinateForView(float x, float y, sf::View& view);
-	void update(float time, std::vector<std::shared_ptr<Enemy>>& enemyList, std::vector<std::shared_ptr<Ability>>&abilitiesList);
+	void update(float time, std::vector<std::shared_ptr<Enemy>>& enemyList, std::vector<std::shared_ptr<Ability>>&abilitiesList, std::vector<sf::Sprite>& coins);
 	StatePerson getState() const { return state; }
 	void draw(sf::RenderWindow* window);
 	void addBullet(){ weapons.push_back(new Weapon(weaponIm, Size(0, 0, weaponIm->getSize().x, weaponIm->getSize().y), 0.1, 10, false)); }

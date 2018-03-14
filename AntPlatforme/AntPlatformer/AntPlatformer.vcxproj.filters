@@ -51,7 +51,10 @@
     <ClCompile Include="Ability.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Factory.cpp">
+    <ClCompile Include="Generator.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Platforms.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,8 +101,11 @@
     <ClInclude Include="menu.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="Factory.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="Generator.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Platforms.h">
+      <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

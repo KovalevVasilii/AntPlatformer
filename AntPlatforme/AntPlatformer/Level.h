@@ -10,6 +10,7 @@
 
 struct ObjectT
 {
+
 	int GetPropertyInt(std::string name);
 	float GetPropertyFloat(std::string name);
 	std::string GetPropertyString(std::string name);
@@ -34,13 +35,15 @@ struct Layer
 class Level
 {
 public:
+	Level();
 	bool LoadFromFile(std::string filename);
 	ObjectT* GetObjectT(std::string name);
 	std::vector<ObjectT*> GetObjectTs(std::string name);
 	std::vector<ObjectT>* GetAllObjectTs();
 	void Draw(sf::RenderWindow &window);
 	sf::Vector2i GetTileSize();
-
+	void addSprite(sf::Sprite sprite);
+	void addObjectT(ObjectT object);
 private:
 	int width, height, tileWidth, tileHeight;
 	int firstTileID;// айди первого тайла
@@ -48,6 +51,7 @@ private:
 	sf::Texture tilesetImage;//текстура карты
 	std::vector<ObjectT> objectTs;
 	std::vector<Layer> layers;
+	std::vector<sf::Sprite> sprites;
 };
 
 

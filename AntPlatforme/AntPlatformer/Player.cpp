@@ -22,7 +22,7 @@
 			}
 
 			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) && (onGround)) {
-				state = jump; dy = -0.6+abilitiesCoef; onGround = false;
+				state = jump; dy = -0.8+abilitiesCoef; onGround = false;
 
 			}
 
@@ -77,7 +77,7 @@
 			it++;
 		}
 	}
-	void Player::update(float time, std::vector<std::shared_ptr<Enemy>>& enemyList,std::vector<std::shared_ptr<Ability>>&abilitiesList)
+	void Player::update(float time, std::vector<std::shared_ptr<Enemy>>& enemyList,std::vector<std::shared_ptr<Ability>>&abilitiesList, std::vector<sf::Sprite>& coins)
 	{
 		//std::cout << getRect().left << getRect().top << std::endl;
 		updateWeapon(time, enemyList);
@@ -130,7 +130,14 @@
 				it->flagExist = false;
 			}
 		}
-		
+		for (int i=0;i<coins.size();i++)
+		{
+			if (coins[i].getGlobalBounds().intersects(getRect())) {
+				coin++;
+				std::swap(coins[i], coins[coins.size() - 1]);
+				coins.pop_back();
+			}
+		}
 			control(time);
 			switch (state)
 			{
